@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio BTS SIO — Zaynab Nour Ebad</title>
+  <style>
+/* =============================================
+   PORTFOLIO BTS SIO — Univers Khosh
+   Poppins · Géométrie · Rétro-minimaliste
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue:        #3B5BDB;
+  --blue-light:  #E8EDFF;
+  --red:         #E03131;
+  --red-light:   #FFE8E8;
+  --green:       #2F9E44;
+  --green-light: #E8F5E9;
+
+  --black:   #1A1A1A;
+  --gray-90: #2D2D2D;
+  --gray-60: #666666;
+  --gray-30: #BDBDBD;
+  --gray-10: #F5F5F3;
+  --white:   #FFFFFF;
+
+  --font: 'Poppins', sans-serif;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.09);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-10); }
+::-webkit-scrollbar-thumb { background: var(--gray-30); border-radius: 99px; }
+
+/* =============================================
+   NAVIGATION
+   ============================================= */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(255,255,255,0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  gap: 2rem;
+  transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+nav.scrolled {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.nav-logo {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-shapes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.shape-sq {
+  width: 10px; height: 10px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+.shape-ci {
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+}
+.shape-tr {
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 11px solid var(--green);
+}
+
+.nav-search-bar {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius-pill);
+  padding: 0 1rem;
+  height: 38px;
+  background: var(--gray-10);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.nav-search-bar:hover {
+  border-color: var(--blue);
+  background: var(--white);
+}
+
+
+
+.nav-search-text {
+  font-size: 0.82rem;
+  color: var(--gray-60);
+  font-family: var(--font);
+  font-weight: 400;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-search-cursor {
+  width: 1px;
+  height: 14px;
+  background: var(--black);
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.15rem;
+  margin-left: auto;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.38rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gray-60);
+  text-decoration: none;
+  transition: all 0.18s;
+  letter-spacing: 0.01em;
+}
+
+.nav-links a:hover { background: var(--gray-10); color: var(--black); }
+.nav-links a.active { background: var(--black); color: var(--white); }
+
+/* =============================================
+   PAGES
+   ============================================= */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 3rem 5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeUp 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.page.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Section header commun ── */
+.section-header {
+  margin-bottom: 2.5rem;
+  padding-top: 1rem;
+}
+
+.section-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-search-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.9rem 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gray-60);
+  background: var(--gray-10);
+}
+
+.section-search-chip svg {
+  width: 13px; height: 13px;
+  opacity: 0.5;
+}
+
+.section-shape-row {
+  display: flex; gap: 5px; align-items: center;
+  margin-left: auto;
+}
+
+h2.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+h2.page-title span.accent-blue  { color: var(--blue); }
+h2.page-title span.accent-red   { color: var(--red); }
+h2.page-title span.accent-green { color: var(--green); }
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--gray-60);
+  line-height: 1.7;
+}
+
+/* Tabs Présentation / Livrables */
+.tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gray-60);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem 0.6rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.18s;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.tab-btn.active {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+.tab-btn:not(.active):hover { color: var(--black); }
+
+.tab-panel { display: none; animation: fadeUp 0.3s ease; }
+.tab-panel.active { display: block; }
+
+/* =============================================
+   PAGE 1 — PRÉSENTATION
+   ============================================= */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  min-height: 82vh;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gray-10);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-60);
+  margin-bottom: 1.5rem;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+}
+
+.hero-name .line-italic {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gray-60);
+  display: block;
+}
+
+.hero-desc {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--gray-60);
+  margin-bottom: 2.5rem;
+  max-width: 400px;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.pill {
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.pill-blue  { background: var(--blue-light);  color: var(--blue);  border-color: rgba(59,91,219,0.2); }
+.pill-red   { background: var(--red-light);   color: var(--red);   border-color: rgba(224,49,49,0.2); }
+.pill-green { background: var(--green-light); color: var(--green); border-color: rgba(47,158,68,0.2); }
+.pill-gray  { background: var(--gray-10);     color: var(--gray-60); border-color: rgba(0,0,0,0.1); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.18s, background 0.18s;
+}
+
+.btn-primary:hover {
+  background: var(--blue);
+  transform: translateY(-1px);
+}
+
+/* Carte info droite */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.18s;
+}
+
+.info-card:hover { border-color: rgba(0,0,0,0.15); }
+
+.info-card-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gray-30);
+  margin-bottom: 0.3rem;
+}
+
+.info-card-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.avatar-card {
+  background: var(--gray-10);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.avatar-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.avatar-sub {
+  font-size: 0.78rem;
+  color: var(--gray-60);
+  margin-top: 0.15rem;
+}
+
+/* =============================================
+   PAGE 2 — ENTREPRISE
+   ============================================= */
+.company-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.company-name-big {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+}
+
+.company-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-30);
+  margin-bottom: 0.5rem;
+}
+
+.company-meta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.company-meta-list li {
+  font-size: 0.82rem;
+  color: var(--gray-60);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta-bullet {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+
+.missions-desc {
+  font-size: 0.88rem;
+  color: var(--gray-60);
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+  max-width: 700px;
+}
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mission-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.mission-card:hover {
+  border-color: rgba(0,0,0,0.18);
+  transform: translateY(-2px);
+}
+
+.mission-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.mission-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+
+.mission-body {
+  font-size: 0.8rem;
+  color: var(--gray-60);
+  line-height: 1.65;
+}
+
+/* =============================================
+   PAGE 3 — VEILLES
+   ============================================= */
+.veilles-intro {
+  font-size: 0.88rem;
+  color: var(--gray-60);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 680px;
+}
+
+.veille-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.veille-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.18s, transform 0.18s;
+  cursor: default;
+}
+
+.veille-card:hover {
+  border-color: var(--blue);
+  transform: translateX(5px);
+}
+
+.veille-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 46px;
+  flex-shrink: 0;
+}
+
+.veille-month {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-30);
+}
+
+.veille-day {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.veille-sep {
+  width: 1px;
+  background: rgba(0,0,0,0.08);
+  align-self: stretch;
+}
+
+.veille-content { flex: 1; }
+
+.veille-cat {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-light);
+  border-radius: var(--radius-pill);
+  padding: 0.18rem 0.65rem;
+  margin-bottom: 0.4rem;
+}
+
+.veille-cat.red   { color: var(--red);   background: var(--red-light); }
+.veille-cat.green { color: var(--green); background: var(--green-light); }
+
+.veille-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+}
+
+.veille-excerpt {
+  font-size: 0.8rem;
+  color: var(--gray-60);
+  line-height: 1.6;
+}
+
+.veille-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: 1.5px dashed rgba(0,0,0,0.15);
+  border-radius: var(--radius);
+  padding: 1rem;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-60);
+  background: none;
+  cursor: pointer;
+  transition: all 0.18s;
+  margin-top: 0.85rem;
+  width: 100%;
+}
+
+.veille-add:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+/* =============================================
+   PAGE 4 — PROJETS
+   ============================================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+.project-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: rgba(0,0,0,0.15);
+}
+
+.project-thumb {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: brightness(0.95);
+}
+
+.thumb-blue  { background: var(--blue-light); }
+.thumb-red   { background: var(--red-light); }
+.thumb-green { background: var(--green-light); }
+.thumb-gray  { background: var(--gray-10); }
+
+.project-thumb span { position: relative; z-index: 1; }
+
+.project-body { padding: 1.1rem 1.25rem; }
+
+.project-type {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gray-30);
+  margin-bottom: 0.35rem;
+}
+
+.project-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+
+.project-desc {
+  font-size: 0.78rem;
+  color: var(--gray-60);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tag {
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: 500;
+  background: var(--gray-10);
+  color: var(--gray-60);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.projects-add-row {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.project-add {
+  width: 100%;
+  min-height: 60px;
+  flex-direction: row;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  background: rgba(47,158,68,0.04);
+  border: 1.5px dashed rgba(47,158,68,0.35);
+  border-radius: var(--radius);
+  color: var(--green);
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+}
+
+#project-form .form-input,
+#project-form .form-textarea {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(47,158,68,0.15);
+}
+
+#project-form .form-input:focus,
+#project-form .form-textarea:focus {
+  background: var(--white);
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(47,158,68,0.07);
+}
+
+#project-form label {
+  color: var(--green) !important;
+}
+
+.project-add {
+  background: rgba(47,158,68,0.04);
+  border: 1.5px dashed rgba(47,158,68,0.35);
+  color: var(--green);
+}
+
+.project-add:hover {
+  background: rgba(47,158,68,0.08);
+  border-color: var(--green);
+}
+
+#np-valider:hover {
+  background: var(--green);
+}
+
+.add-icon { font-size: 1.4rem; margin-bottom: 0.25rem; }
+
+/* =============================================
+   PAGE 5 — COMPÉTENCES
+   ============================================= */
+.competences-intro {
+  background: var(--gray-10);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--gray-60);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.bloc-section { margin-bottom: 2.5rem; }
+
+.bloc-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.bloc-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-blue  { background: var(--blue); }
+.dot-red   { background: var(--red); }
+.dot-green { background: var(--green); }
+
+.bloc-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.skill-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skill-table th {
+  text-align: left;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gray-30);
+  padding: 0.4rem 0.75rem 0.6rem;
+}
+
+.skill-table td {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  vertical-align: middle;
+}
+
+.skill-table tr:last-child td { border-bottom: none; }
+
+.skill-table tbody tr {
+  transition: background 0.15s;
+}
+
+.skill-table tbody tr:hover td {
+  background: var(--gray-10);
+}
+
+.skill-name  { font-weight: 500; color: var(--black); }
+.skill-level { color: var(--gray-60); font-size: 0.78rem; }
+
+.level-bar {
+  width: 88px;
+  height: 5px;
+  background: rgba(0,0,0,0.07);
+  border-radius: 99px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.level-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--blue);
+  transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-ok  { background: var(--green-light); color: var(--green); }
+.badge-wip { background: rgba(0,0,0,0.05);   color: var(--gray-60); }
+
+
+/* =============================================
+   PAGE 6 — CONTACT
+   ============================================= */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact-left { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.contact-intro {
+  font-size: 0.88rem;
+  color: var(--gray-60);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.contact-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.18s;
+}
+
+.contact-block:hover { border-color: rgba(0,0,0,0.18); }
+
+.contact-icon-wrap {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.wrap-blue  { background: var(--blue-light); }
+.wrap-red   { background: var(--red-light); }
+.wrap-green { background: var(--green-light); }
+.wrap-gray  { background: var(--gray-10); }
+
+.contact-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-30);
+  margin-bottom: 0.2rem;
+}
+
+.contact-value {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+/* Formulaire */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: 0.02em;
+}
+
+.form-input,
+.form-textarea {
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--gray-30); }
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(59,91,219,0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+  align-self: flex-start;
+}
+
+.form-submit:hover {
+  background: var(--blue);
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+  text-align: center;
+  padding: 2.5rem 3rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+  color: var(--gray-30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  nav { padding: 0 1.25rem; gap: 1rem; }
+  .nav-search-bar { max-width: 200px; }
+  .nav-links a { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
+
+  .page { padding: 75px 1.25rem 4rem; }
+
+  .hero-layout,
+  .missions-grid,
+  .projects-grid,
+  .contact-layout { grid-template-columns: 1fr; }
+
+  .hero-name { font-size: 2.2rem; }
+}
+
+  
+/* ── Dropdown nav ── */
+.nav-dropdown-wrap {
+  position: relative;
+  margin-left: auto;
+  width: 280px;
+}
+
+.nav-search-bar {
+  cursor: pointer;
+  user-select: none;
+  max-width: 100%;
+}
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  list-style: none;
+  overflow: hidden;
+  z-index: 300;
+  animation: dropDown 0.2s cubic-bezier(0.16,1,0.3,1);
+  padding-top: 6px;
+}
+
+/* Zone tampon invisible pour ne pas perdre le dropdown en passant de la barre à la liste */
+.nav-dropdown::before {
+  content: '';
+  display: block;
+  height: 6px;
+  margin-top: -6px;
+}
+
+@keyframes dropDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-dropdown-wrap:hover .nav-dropdown {
+  display: block;
+}
+
+.nav-dropdown li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-60);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.nav-dropdown li:last-child a { border-bottom: none; }
+
+.nav-dropdown li a::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gray-30);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.nav-dropdown li a:hover {
+  background: var(--gray-10);
+  color: var(--black);
+}
+
+.nav-dropdown li a:hover::before,
+.nav-dropdown li a.active::before { background: var(--blue); }
+
+.nav-dropdown li a.active {
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* Masquer l'ancien menu de droite */
+.nav-links { display: none !important; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     NAVIGATION
+═══════════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    Portfolio
+    <div class="nav-shapes">
+      <div class="shape-sq"></div>
+      <div class="shape-ci"></div>
+      <div class="shape-tr"></div>
+    </div>
+  </div>
+
+  <div class="nav-dropdown-wrap">
+    <div class="nav-search-bar">
+      <span class="nav-search-text" id="nav-search-label">À propos |</span>
+      <div class="nav-search-cursor"></div>
+      <div class="nav-shapes" style="margin-left:auto">
+        <div class="shape-sq"></div>
+        <div class="shape-ci"></div>
+        <div class="shape-tr"></div>
+      </div>
+    </div>
+    <ul class="nav-dropdown">
+      <li><a href="#" data-page="presentation" class="active">À propos</a></li>
+      <li><a href="#" data-page="entreprise">Entreprise</a></li>
+      <li><a href="#" data-page="veilles">Veilles</a></li>
+      <li><a href="#" data-page="projets">Projets</a></li>
+      <li><a href="#" data-page="competences">Compétences</a></li>
+      <li><a href="#" data-page="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════
+     PAGE 1 — À PROPOS
+═══════════════════════════════ -->
+<div id="page-presentation" class="page">
+
+  <div class="hero-layout">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <div class="nav-shapes">
+          <div class="shape-sq" style="width:7px;height:7px;"></div>
+          <div class="shape-ci" style="width:7px;height:7px;"></div>
+          <div class="shape-tr" style="border-left-width:4px;border-right-width:4px;border-bottom-width:8px;"></div>
+        </div>
+        BTS SIO · Promotion 2025–2027
+      </div>
+
+      <h1 class="hero-name">
+        Bienvenue
+      </h1>
+
+      <p class="hero-desc">
+        Issu d'une formation en IMEP orientée webdesign, j'ai progressivement développé un fort intérêt pour le développement web au fil de mes projets. La découverte du code et de la logique derrière la conception de sites m'a naturellement conduit vers un BTS SIO, afin d'approfondir mes compétences techniques et évoluer pleinement dans le domaine du développement. Bienvenue dans mon portfolio !
+      </p>
+
+      <div class="hero-pills">
+        <span class="pill pill-blue">HTML</span>
+        <span class="pill pill-red">CSS</span>
+        <span class="pill pill-green">C#</span>
+        <span class="pill pill-gray">JavaScript</span>
+      </div>
+
+      <button class="btn-primary hero-cta">
+        Voir mes projets
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="hero-right">
+      <div class="avatar-card">
+        <div class="avatar">ZN</div>
+        <div>
+          <div class="avatar-name">Zaynab Nour Ebad</div>
+          <div class="avatar-sub">BTS SIO · Option SLAM</div>
+          <div class="avatar-sub">Lyon, France</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-label">Formation</div>
+        <div class="info-card-value">BTS Services Informatiques aux Organisations</div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-label">Établissement</div>
+        <div class="info-card-value">NEXA DIGITAL SCHOOL</div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-label">Alternance / Stage</div>
+        <div class="info-card-value">NAALI</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 2 — ENTREPRISE
+═══════════════════════════════ -->
+<div id="page-entreprise" class="page">
+
+  <div class="section-header">
+    <div class="section-breadcrumb">
+      <div class="section-search-chip">Entreprise</div>
+    </div>
+    <h2 class="page-title">Mon expérience<br><span class="accent-blue">professionnelle</span></h2>
+  </div>
+
+  <div class="company-header">
+    <div>
+      <div class="company-label">Entreprise d'accueil</div>
+      <div class="company-name-big">NAALI</div>
+      <div style="font-size:0.82rem;color:var(--gray-60);margin-top:0.4rem;">Compléments alimentaires au safran</div>
+    </div>
+    <ul class="company-meta-list">
+      <li><span class="meta-bullet"></span> E-commerce &amp; Santé naturelle</li>
+      <li><span class="meta-bullet"></span> Lyon, France</li>
+      <li><span class="meta-bullet"></span> Depuis septembre 2025 · Alternance BTS SIO</li>
+      <li><span class="meta-bullet"></span> www.naali.fr </li>
+    </ul>
+  </div>
+
+  <p class="missions-desc">
+    NAALI est une société spécialisée dans la vente de compléments alimentaires à base de safran, s'adressant aussi bien aux particuliers (B2C) qu'aux professionnels de santé et pharmacies (B2B). Entrée en alternance en septembre 2025, ma mission principale a consisté à développer et maintenir une intelligence artificielle dédiée au service client, puis à étendre progressivement son périmètre d'action vers le marketing et le service commercial.
+  </p>
+
+  <div style="display:flex;flex-direction:column;gap:1rem;">
+
+    <div class="mission-card" style="display:flex;gap:1.25rem;align-items:flex-start;">
+      <div style="font-size:1.6rem;flex-shrink:0;margin-top:0.1rem;">🤖</div>
+      <div>
+        <div class="mission-title">Développement de l'IA service client</div>
+        <div class="mission-body">Conception et développement d'un agent d'intelligence artificielle destiné à répondre automatiquement aux demandes du service client. Création des flux de réponses, paramétrage des agents IA et mise en production progressive au sein de l'entreprise.</div>
+      </div>
+    </div>
+
+    <div class="mission-card" style="display:flex;gap:1.25rem;align-items:flex-start;">
+      <div style="font-size:1.6rem;flex-shrink:0;margin-top:0.1rem;">🔧</div>
+      <div>
+        <div class="mission-title">Maintenance &amp; vérification des agents IA</div>
+        <div class="mission-body">Suivi régulier des tickets clients, vérification du bon fonctionnement des agents IA et correction des bugs identifiés. Intervention rapide en cas d'incident pour maintenir la continuité de service et garantir la qualité des réponses automatisées.</div>
+      </div>
+    </div>
+
+    <div class="mission-card" style="display:flex;gap:1.25rem;align-items:flex-start;">
+      <div style="font-size:1.6rem;flex-shrink:0;margin-top:0.1rem;">✨</div>
+      <div>
+        <div class="mission-title">Création de nouvelles solutions IA</div>
+        <div class="mission-body">Face à de nouveaux besoins ou problématiques identifiées, conception de solutions inédites pour optimiser les performances de l'IA et améliorer la satisfaction client. Développement itératif basé sur les retours terrain et les données collectées.</div>
+      </div>
+    </div>
+
+    <div class="mission-card" style="display:flex;gap:1.25rem;align-items:flex-start;">
+      <div style="font-size:1.6rem;flex-shrink:0;margin-top:0.1rem;">📊</div>
+      <div>
+        <div class="mission-title">Analyse des performances &amp; reporting</div>
+        <div class="mission-body">Analyse hebdomadaire et mensuelle des statistiques de l'IA : taux de résolution, volumes traités, points de friction. Production de rapports détaillés à destination des managers, avec recommandations d'amélioration. Rôle clé en tant que référente des chiffres et indicateurs de performance.</div>
+      </div>
+    </div>
+
+    <div class="mission-card" style="display:flex;gap:1.25rem;align-items:flex-start;">
+      <div style="font-size:1.6rem;flex-shrink:0;margin-top:0.1rem;">🚀</div>
+      <div>
+        <div class="mission-title">Extension du périmètre IA</div>
+        <div class="mission-body">Après le service client, extension de l'IA au service marketing pour le community management. En cours : automatisation du service commercial afin de gérer les demandes après-vente des pharmacies partenaires (B2B). Pilotage de l'évolution continue du dispositif IA de l'entreprise.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 3 — VEILLES
+═══════════════════════════════ -->
+<div id="page-veilles" class="page">
+
+  <div class="section-header">
+    <div class="section-breadcrumb">
+      <div class="section-search-chip">Veille technologique</div>
+    </div>
+    <h2 class="page-title">Mes <span class="accent-red">veilles</span></h2>
+  </div>
+
+  <p class="veilles-intro">
+    La veille technologique consiste à surveiller activement les évolutions du secteur informatique pour rester à jour. Voici les articles et ressources que j'ai explorés en lien avec mes missions chez NAALI et ma formation BTS SIO.
+  </p>
+
+  <div class="veille-list" id="veille-list">
+
+    <a href="https://vooban.com/articles/2025/05/10-innovations-en-intelligence-artificielle-a-suivre-de-pres-en-2025" target="_blank" rel="noopener" class="veille-card" style="text-decoration:none;cursor:pointer;">
+      <div class="veille-date">
+        <span class="veille-month">Mai</span>
+        <span class="veille-day">25</span>
+      </div>
+      <div class="veille-sep"></div>
+      <div class="veille-content">
+        <span class="veille-cat">Intelligence artificielle</span>
+        <div class="veille-title">10 innovations en IA à suivre en 2025</div>
+        <div class="veille-excerpt">Les agents IA autonomes, les LLM nouvelle génération et l'automatisation des tâches en entreprise — un tour d'horizon des avancées majeures directement en lien avec mon travail chez NAALI. Source : Vooban</div>
+      </div>
+    </a>
+
+    <a href="https://itsocial.fr/intelligence-artificielle/intelligence-artificielle-articles/2025-devait-etre-lannee-de-lindustrialisation-de-lia-debut-2026-montre-un-bilan-plus-nuance/" target="_blank" rel="noopener" class="veille-card" style="text-decoration:none;cursor:pointer;">
+      <div class="veille-date">
+        <span class="veille-month">Jan</span>
+        <span class="veille-day">26</span>
+      </div>
+      <div class="veille-sep"></div>
+      <div class="veille-content">
+        <span class="veille-cat">Agents IA</span>
+        <div class="veille-title">Bilan de l'industrialisation de l'IA en entreprise</div>
+        <div class="veille-excerpt">Retour sur les promesses de 2025 concernant les agents IA en production. Un article qui éclaire les défis réels de déploiement d'une IA en entreprise, très proche de mon expérience chez NAALI. Source : IT Social</div>
+      </div>
+    </a>
+
+    <a href="https://www.bases-netsources.com/articles-de-netsources/repenser-la-veille-a-l-ere-des-agents-ia" target="_blank" rel="noopener" class="veille-card" style="text-decoration:none;cursor:pointer;">
+      <div class="veille-date">
+        <span class="veille-month">Fév</span>
+        <span class="veille-day">25</span>
+      </div>
+      <div class="veille-sep"></div>
+      <div class="veille-content">
+        <span class="veille-cat red">Agents IA</span>
+        <div class="veille-title">Repenser la veille à l'ère des agents IA</div>
+        <div class="veille-excerpt">Analyse du passage des chatbots aux agents semi-autonomes, capables d'exécuter des séquences d'actions complexes. Très pertinent pour comprendre l'évolution du type d'IA que je développe chez NAALI. Source : Netsources</div>
+      </div>
+    </a>
+
+    <a href="https://codaza.fr/guide-complet-du-developpement-web-moderne-en-2025/" target="_blank" rel="noopener" class="veille-card" style="text-decoration:none;cursor:pointer;">
+      <div class="veille-date">
+        <span class="veille-month">Fév</span>
+        <span class="veille-day">26</span>
+      </div>
+      <div class="veille-sep"></div>
+      <div class="veille-content">
+        <span class="veille-cat green">Développement web</span>
+        <div class="veille-title">Guide du développement web moderne en 2025</div>
+        <div class="veille-excerpt">HTML5, CSS3, JavaScript, frameworks modernes et bonnes pratiques — un guide complet qui couvre les fondamentaux enseignés en BTS SIO et les outils professionnels attendus sur le marché. Source : Codaza</div>
+      </div>
+    </a>
+
+    <a href="https://www.free-work.com/fr/tech-it/blog/actualites-informatiques/le-grand-retour-du-natif-quand-css-et-html-simplifient-enfin-vos-composants-ui" target="_blank" rel="noopener" class="veille-card" style="text-decoration:none;cursor:pointer;">
+      <div class="veille-date">
+        <span class="veille-month">Sep</span>
+        <span class="veille-day">25</span>
+      </div>
+      <div class="veille-sep"></div>
+      <div class="veille-content">
+        <span class="veille-cat green">CSS & HTML</span>
+        <div class="veille-title">CSS & HTML 2025 : l'ère des composants UI natifs</div>
+        <div class="veille-excerpt">Les nouvelles fonctionnalités CSS et HTML natives qui réduisent la dépendance à JavaScript et simplifient la création d'interfaces. Un article utile pour mon apprentissage du front-end en BTS SIO. Source : Free-Work</div>
+      </div>
+    </a>
+
+    <a href="https://botpress.com/fr/blog/top-artificial-intelligence-trends" target="_blank" rel="noopener" class="veille-card" style="text-decoration:none;cursor:pointer;">
+      <div class="veille-date">
+        <span class="veille-month">Mar</span>
+        <span class="veille-day">25</span>
+      </div>
+      <div class="veille-sep"></div>
+      <div class="veille-content">
+        <span class="veille-cat">IA & Automatisation</span>
+        <div class="veille-title">10 tendances IA à surveiller en 2025-2026</div>
+        <div class="veille-excerpt">Les grandes tendances IA selon McKinsey, Gartner et IBM : agents autonomes, automatisation des processus métier, IA dans le service client. Directement en lien avec ma mission d'extension du périmètre IA chez NAALI. Source : Botpress</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Bouton ajouter -->
+  <button class="veille-add" id="veille-add-btn">+ Ajouter une veille</button>
+
+  <!-- Formulaire d'ajout (caché par défaut) -->
+  <div id="veille-form" style="display:none; margin-top:1rem; background:var(--white); border:1px solid rgba(0,0,0,0.1); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-soft);">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+      <div style="display:flex;flex-direction:column;gap:0.4rem;">
+        <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Jour</label>
+        <input id="nv-jour" type="number" min="1" max="31" placeholder="15" class="form-input">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.4rem;">
+        <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Mois (3 lettres)</label>
+        <input id="nv-mois" type="text" placeholder="Jan" maxlength="3" class="form-input">
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+      <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Catégorie</label>
+      <input id="nv-cat" type="text" placeholder="ex: Intelligence artificielle" class="form-input">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+      <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Titre de l'article</label>
+      <input id="nv-titre" type="text" placeholder="ex: Les agents IA en 2025" class="form-input">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+      <label style="font-size:0.75rem;font-weight:600;color:var(--black);">URL de l'article</label>
+      <input id="nv-url" type="url" placeholder="https://..." class="form-input">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.5rem;">
+      <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Résumé</label>
+      <textarea id="nv-resume" class="form-textarea" style="min-height:80px;" placeholder="Ce que tu as retenu de cet article..."></textarea>
+    </div>
+    <div style="display:flex;gap:0.75rem;">
+      <button id="nv-valider" class="btn-primary" style="font-size:0.82rem;padding:0.6rem 1.4rem;">Ajouter →</button>
+      <button id="nv-annuler" style="background:none;border:1px solid rgba(0,0,0,0.12);border-radius:var(--radius-pill);padding:0.6rem 1.4rem;font-family:var(--font);font-size:0.82rem;cursor:pointer;color:var(--gray-60);">Annuler</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════
+     PAGE 4 — PROJETS
+═══════════════════════════════ -->
+<div id="page-projets" class="page">
+
+  <div class="section-header">
+    <div class="section-breadcrumb">
+      <div class="section-search-chip">
+        Mes projets
+      </div>
+    </div>
+    <h2 class="page-title">Mes <span class="accent-green">projets</span></h2>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-thumb thumb-blue"><span>🏥</span></div>
+      <div class="project-body">
+        <div class="project-type">Projet scolaire · SLAM</div>
+        <div class="project-name">GSB : Gestion médicale</div>
+        <div class="project-desc">Application Windows Forms en C# avec architecture MVC et base de données MySQL. Gestion des médecins, patients et ordonnances — CRUD complet, requêtes paramétrées et transactions.</div>
+        <div class="project-tags">
+          <span class="tag">C#</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Windows Forms</span>
+          <span class="tag">MVC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb thumb-red"><span>🎮</span></div>
+      <div class="project-body">
+        <div class="project-type">Projet scolaire · JavaScript</div>
+        <div class="project-name">Tier List Generator</div>
+        <div class="project-desc">Clone de TierMaker.com construit from scratch. Drag & Drop HTML5 natif, upload d'images via FileReader, export canvas et sauvegarde localStorage.</div>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Drag & Drop</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb thumb-gray"><span>🦙</span></div>
+      <div class="project-body">
+        <div class="project-type">Projet scolaire · JavaScript</div>
+        <div class="project-name">Filtre Kuzco</div>
+        <div class="project-desc">Filtre webcam en temps réel appliquant un masque lama ou Kuzco sur le visage détecté. Utilisation de MediaPipe Face Mesh et dessin sur canvas.</div>
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">MediaPipe</span>
+          <span class="tag">Canvas</span>
+          <span class="tag">Webcam</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb thumb-green"><span>🌸</span></div>
+      <div class="project-body">
+        <div class="project-type">Projet personnel</div>
+        <div class="project-name">Raflesia</div>
+        <div class="project-desc">Application web d'apprentissage botanique avec 5 modes de jeu : Observation, Recherche, Encyclopédie, Révision et Challenge. Interface originale avec typographie et identité visuelle personnalisées.</div>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">UI Design</span>
+        </div>
+      </div>
+    </div>
+
+</div> <!-- fermeture projects-grid -->
+
+<div class="projects-add-row">
+  <button class="project-add" id="project-add-btn">
+    <span>＋</span>
+    Ajouter un projet
+  </button>
+</div>
+
+<!-- Formulaire d'ajout projet (caché par défaut) -->
+<div id="project-form" style="display:none; margin-top:1.5rem; background:rgba(26,26,26,0.03); border:1.5px dashed rgba(47,158,68,0.25); border-radius:var(--radius); padding:1.75rem 2rem; box-shadow:none;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+    <div style="display:flex;flex-direction:column;gap:0.4rem;">
+      <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Nom du projet</label>
+      <input id="np-nom" type="text" placeholder="ex: Mon Portfolio" class="form-input">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;">
+      <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Type</label>
+      <input id="np-type" type="text" placeholder="ex: Projet scolaire · SLAM" class="form-input">
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+    <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Description</label>
+    <textarea id="np-desc" class="form-textarea" style="min-height:80px;" placeholder="Décris ton projet en 2-3 phrases..."></textarea>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+    <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Tags (séparés par des virgules)</label>
+    <input id="np-tags" type="text" placeholder="ex: HTML, CSS, JavaScript" class="form-input">
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.5rem;">
+    <label style="font-size:0.75rem;font-weight:600;color:var(--black);">Couleur de la carte</label>
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;" id="np-color-picker">
+      <button type="button" class="np-color active" data-color="thumb-blue" style="width:28px;height:28px;border-radius:50%;background:var(--blue-light);border:2px solid var(--blue);cursor:pointer;"></button>
+      <button type="button" class="np-color" data-color="thumb-red" style="width:28px;height:28px;border-radius:50%;background:var(--red-light);border:2px solid transparent;cursor:pointer;"></button>
+      <button type="button" class="np-color" data-color="thumb-green" style="width:28px;height:28px;border-radius:50%;background:var(--green-light);border:2px solid transparent;cursor:pointer;"></button>
+      <button type="button" class="np-color" data-color="thumb-gray" style="width:28px;height:28px;border-radius:50%;background:var(--gray-10);border:2px solid transparent;cursor:pointer;"></button>
+    </div>
+  </div>
+  <div style="display:flex;gap:0.75rem;">
+    <button id="np-valider" class="btn-primary" style="font-size:0.82rem;padding:0.6rem 1.4rem;">Ajouter</button>
+    <button id="np-annuler" style="background:none;border:1px solid rgba(0,0,0,0.12);border-radius:var(--radius-pill);padding:0.6rem 1.4rem;font-family:var(--font);font-size:0.82rem;cursor:pointer;color:var(--gray-60);">Annuler</button>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════
+     PAGE 5 — COMPÉTENCES
+═══════════════════════════════ -->
+<div id="page-competences" class="page">
+
+  <div class="section-header">
+    <div class="section-breadcrumb">
+      <div class="section-search-chip">
+        Compétences BTS SIO |
+      </div>
+    </div>
+    <h2 class="page-title">Mes <span class="accent-blue">compétences</span></h2>
+  </div>
+
+  <div class="competences-intro">
+    Ce tableau reprend le barème de compétences du référentiel BTS SIO. Chaque compétence
+    est associée à un niveau de maîtrise et à des preuves concrètes issues de mes projets
+    et missions en entreprise.
+  </div>
+
+  <!-- Bloc 1 -->
+  <div class="bloc-section">
+    <div class="bloc-header">
+      <div class="bloc-dot dot-blue"></div>
+      <div class="bloc-title">Bloc 1 — Support et mise à disposition de services informatiques</div>
+    </div>
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>Compétence</th>
+          <th>Niveau</th>
+          <th>Maîtrise</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name">Gérer le patrimoine informatique</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:75%" data-width="75%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Répondre aux incidents et aux demandes d'assistance</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:60%" data-width="60%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Développer la présence en ligne de l'organisation</td>
+          <td class="skill-level">En cours</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:40%" data-width="40%"></div></div></td>
+          <td><span class="badge badge-wip">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Travailler en mode projet</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:70%" data-width="70%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Mettre à disposition des utilisateurs un service informatique</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:65%" data-width="65%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Organiser son développement professionnel</td>
+          <td class="skill-level">En cours</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:50%" data-width="50%"></div></div></td>
+          <td><span class="badge badge-wip">En cours</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bloc 2 SLAM -->
+  <div class="bloc-section">
+    <div class="bloc-header">
+      <div class="bloc-dot dot-red"></div>
+      <div class="bloc-title">Bloc 2 — Option SLAM — Solutions logicielles et applications métiers</div>
+    </div>
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>Compétence</th>
+          <th>Niveau</th>
+          <th>Maîtrise</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name">Concevoir et développer une solution applicative</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:80%" data-width="80%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Assurer la maintenance corrective ou évolutive d'une solution</td>
+          <td class="skill-level">En cours</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:55%" data-width="55%"></div></div></td>
+          <td><span class="badge badge-wip">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Gérer les données</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:70%" data-width="70%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bloc 2 SISR -->
+  <div class="bloc-section">
+    <div class="bloc-header">
+      <div class="bloc-dot dot-green"></div>
+      <div class="bloc-title">Bloc 2 — Option SISR — Solutions d'infrastructure, systèmes et réseaux</div>
+    </div>
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>Compétence</th>
+          <th>Niveau</th>
+          <th>Maîtrise</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="skill-name">Construire une solution d'infrastructure</td>
+          <td class="skill-level">En cours</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:50%" data-width="50%"></div></div></td>
+          <td><span class="badge badge-wip">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Sécuriser l'infrastructure</td>
+          <td class="skill-level">En cours</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:45%" data-width="45%"></div></div></td>
+          <td><span class="badge badge-wip">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="skill-name">Exploiter et maintenir les équipements</td>
+          <td class="skill-level">Opérationnel</td>
+          <td><div class="level-bar"><div class="level-fill" style="width:65%" data-width="65%"></div></div></td>
+          <td><span class="badge badge-ok">Validée</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 6 — CONTACT
+═══════════════════════════════ -->
+<div id="page-contact" class="page">
+
+  <div class="section-header">
+    <div class="section-breadcrumb">
+      <div class="section-search-chip">
+        Contact
+      </div>
+    </div>
+    <h2 class="page-title">Me <span class="accent-red">contacter</span></h2>
+  </div>
+
+  <div class="contact-layout">
+
+    <div class="contact-left">
+      <p class="contact-intro">
+        Une question sur mon parcours, mes projets ou une opportunité de
+        collaboration ? N'hésitez pas à me contacter.
+      </p>
+
+      <div class="contact-block">
+        <div class="contact-icon-wrap wrap-blue">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">nourebadz@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-icon-wrap wrap-red">📱</div>
+        <div>
+          <div class="contact-label">Téléphone</div>
+          <div class="contact-value">06 83 66 82 58</div>
+        </div>
+      </div>
+
+      <a href="https://www.linkedin.com/in/zaynab-nour-ebad-5738a7396" target="_blank" rel="noopener" class="contact-block" style="text-decoration:none;">
+        <div class="contact-icon-wrap wrap-green">🔗</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value" style="color:#3B5BDB;">Zaynab Nour Ebad ↗</div>
+        </div>
+      </a>
+
+      <div class="contact-block">
+        <div class="contact-icon-wrap wrap-gray">📍</div>
+        <div>
+          <div class="contact-label">Localisation</div>
+          <div class="contact-value">Lyon, France</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpqnnaoa" method="POST">
+      <div class="form-group">
+        <label class="form-label" for="contact-name">Votre nom</label>
+        <input id="contact-name" name="name" type="text" class="form-input" placeholder="Jean Dupont" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="contact-email">Votre email</label>
+        <input id="contact-email" name="email" type="email" class="form-input" placeholder="jean@exemple.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="contact-msg">Votre message</label>
+        <textarea id="contact-msg" name="message" class="form-textarea" placeholder="Bonjour, je souhaitais vous contacter au sujet de..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="form-submit-btn">Envoyer →</button>
+      <p id="form-success" style="display:none;color:#2F9E44;font-size:0.85rem;font-weight:600;margin-top:0.5rem;">✓ Message envoyé ! Je vous répondrai dès que possible.</p>
+      <p id="form-error" style="display:none;color:#E03131;font-size:0.85rem;font-weight:600;margin-top:0.5rem;">Une erreur est survenue. Écrivez directement à nourebadz@gmail.com</p>
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="nav-shapes">
+    <div class="shape-sq" style="width:7px;height:7px;"></div>
+    <div class="shape-ci" style="width:7px;height:7px;"></div>
+    <div class="shape-tr" style="border-left-width:4px;border-right-width:4px;border-bottom-width:8px;"></div>
+  </div>
+  Portfolio BTS SIO · Zaynab Nour Ebad · 2025
+</footer>
+
+<script>
+/* =============================================
+   PORTFOLIO BTS SIO — Script principal
+   ============================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+/* ── Projets : ajout dynamique ── */
+const projectAddBtn = document.getElementById('project-add-btn');
+const projectForm   = document.getElementById('project-form');
+const projectsGrid  = document.querySelector('.projects-grid');
+
+const emojis = {
+  'thumb-blue':  '🗂️',
+  'thumb-red':   '🌐',
+  'thumb-green': '🔧',
+  'thumb-gray':  '⭐'
+};
+
+let selectedColor = 'thumb-blue';
+
+document.querySelectorAll('.np-color').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.np-color').forEach(b => b.style.borderColor = 'transparent');
+    btn.style.borderColor = 'var(--blue)';
+    selectedColor = btn.dataset.color;
+  });
+});
+
+if (projectAddBtn) {
+  projectAddBtn.addEventListener('click', () => {
+    projectForm.style.display = projectForm.style.display === 'none' ? 'block' : 'none';
+  });
+}
+
+document.getElementById('np-annuler')?.addEventListener('click', () => {
+  projectForm.style.display = 'none';
+});
+
+document.getElementById('np-valider')?.addEventListener('click', () => {
+  const nom  = document.getElementById('np-nom').value.trim();
+  const type = document.getElementById('np-type').value.trim();
+  const desc = document.getElementById('np-desc').value.trim();
+  const tags = document.getElementById('np-tags').value.trim();
+
+  if (!nom || !type || !desc) {
+    alert('Merci de remplir au moins le nom, le type et la description.');
+    return;
+  }
+
+  const tagsHTML = tags
+    ? tags.split(',').map(t => `<span class="tag">${t.trim()}</span>`).join('')
+    : '';
+
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.innerHTML = `
+    <div class="project-thumb ${selectedColor}">
+      <span>${emojis[selectedColor]}</span>
+    </div>
+    <div class="project-body">
+      <div class="project-type">${type}</div>
+      <div class="project-name">${nom}</div>
+      <div class="project-desc">${desc}</div>
+      <div class="project-tags">${tagsHTML}</div>
+    </div>
+  `;
+
+  projectsGrid.appendChild(card);
+
+  ['np-nom','np-type','np-desc','np-tags'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  selectedColor = 'thumb-blue';
+  document.querySelectorAll('.np-color').forEach(b => b.style.borderColor = 'transparent');
+  document.querySelector('.np-color[data-color="thumb-blue"]').style.borderColor = 'var(--blue)';
+  projectForm.style.display = 'none';
+});
+
+  /* ── Navigation entre pages ── */
+  const pages   = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const searchText = document.querySelector('.nav-search-text');
+
+  const pageLabels = {
+    presentation : 'À propos |',
+    entreprise   : 'Entreprise |',
+    veilles      : 'Veille technologique |',
+    projets      : 'Mes projets |',
+    competences  : 'Compétences |',
+    contact      : 'Contact |'
+  };
+
+  // Dropdown links
+  const dropdownLinks = document.querySelectorAll('.nav-dropdown a');
+  const searchLabel   = document.getElementById('nav-search-label');
+
+  function showPage(id) {
+    pages.forEach(p => p.classList.remove('active'));
+    dropdownLinks.forEach(a => a.classList.remove('active'));
+
+    const page = document.getElementById('page-' + id);
+    if (page) page.classList.add('active');
+
+    const activeLink = document.querySelector(`.nav-dropdown a[data-page="${id}"]`);
+    if (activeLink) activeLink.classList.add('active');
+
+    if (searchLabel && pageLabels[id]) {
+      searchLabel.textContent = pageLabels[id];
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id === 'competences') animateSkillBars();
+  }
+
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      showPage(link.dataset.page);
+    });
+  });
+
+  // Ancienne nav (compatibility)
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      showPage(link.dataset.page);
+    });
+  });
+
+  /* ── Tabs Présentation / Livrables ── */
+  document.querySelectorAll('.tabs-row').forEach(row => {
+    const btns   = row.querySelectorAll('.tab-btn');
+    const panels = row.closest('.page, .section-tabs')
+                      .querySelectorAll('.tab-panel');
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b   => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        if (panels[i]) panels[i].classList.add('active');
+      });
+    });
+  });
+
+  /* ── Barres de compétences (animation au déclenchement) ── */
+  function animateSkillBars() {
+    document.querySelectorAll('.level-fill').forEach(bar => {
+      const target = bar.dataset.width || bar.style.width;
+      bar.style.width = '0%';
+      setTimeout(() => { bar.style.width = target; }, 80);
+    });
+  }
+
+  /* ── Veilles : afficher/masquer le formulaire ── */
+const veilleAddBtn = document.getElementById('veille-add-btn');
+const veilleForm   = document.getElementById('veille-form');
+const veilleList   = document.getElementById('veille-list');
+
+if (veilleAddBtn) {
+  veilleAddBtn.addEventListener('click', () => {
+    veilleForm.style.display = veilleForm.style.display === 'none' ? 'block' : 'none';
+  });
+}
+
+document.getElementById('nv-annuler')?.addEventListener('click', () => {
+  veilleForm.style.display = 'none';
+});
+
+document.getElementById('nv-valider')?.addEventListener('click', () => {
+  const jour   = document.getElementById('nv-jour').value.trim();
+  const mois   = document.getElementById('nv-mois').value.trim();
+  const cat    = document.getElementById('nv-cat').value.trim();
+  const titre  = document.getElementById('nv-titre').value.trim();
+  const url    = document.getElementById('nv-url').value.trim();
+  const resume = document.getElementById('nv-resume').value.trim();
+
+  if (!jour || !mois || !cat || !titre || !url || !resume) {
+    alert('Merci de remplir tous les champs.');
+    return;
+  }
+
+  const card = document.createElement('a');
+  card.href = url;
+  card.target = '_blank';
+  card.rel = 'noopener';
+  card.className = 'veille-card';
+  card.style.textDecoration = 'none';
+  card.style.cursor = 'pointer';
+  card.innerHTML = `
+    <div class="veille-date">
+      <span class="veille-month">${mois}</span>
+      <span class="veille-day">${jour}</span>
+    </div>
+    <div class="veille-sep"></div>
+    <div class="veille-content">
+      <span class="veille-cat">${cat}</span>
+      <div class="veille-title">${titre}</div>
+      <div class="veille-excerpt">${resume}</div>
+    </div>
+  `;
+
+  veilleList.appendChild(card);
+
+  // Réinitialiser le formulaire
+  ['nv-jour','nv-mois','nv-cat','nv-titre','nv-url','nv-resume'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  veilleForm.style.display = 'none';
+});
+
+  /* ── Bouton "Voir mes projets" dans hero ── */
+  const heroBtn = document.querySelector('.hero-cta');
+  if (heroBtn) {
+    heroBtn.addEventListener('click', e => {
+      e.preventDefault();
+      showPage('projets');
+    });
+  }
+
+  /* ── Formulaire de contact Formspree ── */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn     = document.getElementById('form-submit-btn');
+      const success = document.getElementById('form-success');
+      const error   = document.getElementById('form-error');
+ 
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      success.style.display = 'none';
+      error.style.display   = 'none';
+ 
+      try {
+        const res = await fetch('https://formspree.io/f/xpqnnaoa', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        });
+ 
+        if (res.ok) {
+          success.style.display = 'block';
+          contactForm.reset();
+          btn.textContent = 'Envoyer →';
+          btn.disabled = false;
+        } else {
+          throw new Error('Erreur serveur');
+        }
+      } catch {
+        error.style.display = 'block';
+        btn.textContent = 'Envoyer →';
+        btn.disabled = false;
+      }
+    });
+  }
+  
+  /* ── Init ── */
+  showPage('presentation');
+
+  // Header flottant au scroll
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      navEl.classList.add('scrolled');
+    } else {
+      navEl.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+});
+
+</script>
+</body>
+</html>
