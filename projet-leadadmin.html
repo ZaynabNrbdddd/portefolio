@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeadAdmin : Zaynab Nour Ebad</title>
+  <title>LeadAdmin &mdash; Zaynab Nour Ebad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
 
 /* WRAPPER */
-.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
+.wrapper{max-width:1140px;margin:0 auto;padding:130px 4rem 7rem;}
 
 /* HERO */
 .project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
@@ -129,26 +129,27 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
   h1.project-title{font-size:2.6rem;}
 }
+
   </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="topbar">
-  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+  <a href="index.html#projets" class="nav-logo">Portfolio</a>
 </div>
 <div class="wrapper">
 <div class="project-hero">
   <div class="hero-left">
     <div class="project-eyebrow">Projet personnel</div>
     <h1 class="project-title">LeadAdmin</h1>
-    <p class="project-subtitle">Gestionnaire d'inventaire de ressources numériques avec authentification par rôle, tableau de bord filtrable et export CSV. Conçu pour adresser la compétence Gérer le patrimoine informatique du BTS SIO.</p>
+    <p class="project-subtitle">Gestionnaire d'inventaire de ressources numériques avec authentification par rôle, tableau de bord filtrable et export CSV. Conçu dans le contexte des outils utilisés en alternance chez NAALI.</p>
     <div class="tags-row">
       <span class="tag">JavaScript</span><span class="tag">LocalStorage</span><span class="tag">Auth par rôle</span><span class="tag">Export CSV</span><span class="tag">Dashboard</span><span class="tag">Responsive</span>
     </div>
   </div>
   <div class="meta-grid">
     <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet personnel</div></div>
-    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">05/05/2026 : 20/05/2026</div></div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">05/05/2026 au 20/05/2026</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">JS vanilla &middot; LocalStorage &middot; CSV &middot; Auth</div></div>
     <div class="meta-card">
       <div class="meta-label">Compétences E5</div>
@@ -165,36 +166,35 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : tableau de bord inventaire</span></div><div class="screenshot-label">Dashboard : inventaire des ressources numériques</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : écran de connexion</span></div><div class="screenshot-label">Authentification : accès admin / utilisateur</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : filtres et export</span></div><div class="screenshot-label">Filtrage dynamique et export CSV</div></div>
+    <div class="screenshot-slot full">
+      <img src="captures/leadadmin-dashboard.png" alt="Dashboard LeadAdmin">
+      <div class="screenshot-label">Vue d'ensemble — statistiques et ressources à surveiller</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/leadadmin-login.png" alt="Écran de connexion LeadAdmin">
+      <div class="screenshot-label">Authentification — accès admin ou utilisateur</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/leadadmin-inventaire.png" alt="Inventaire LeadAdmin">
+      <div class="screenshot-label">Inventaire filtrable — ressources NAALI et personnelles</div>
+    </div>
   </div>
 </div>
 
 <div class="content-section">
   <div class="section-title">Description</div>
-  <p class="content-text">LeadAdmin est un gestionnaire d'inventaire de ressources numériques : logiciels, licences, équipements, accès : conçu pour répondre à une compétence précise du référentiel BTS SIO : gérer le patrimoine informatique d'une organisation. L'idée est née du constat que les PME gèrent souvent leur inventaire IT dans des tableurs éparpillés, sans vision centralisée ni contrôle des accès.</p>
-  <p class="content-text">L'application propose un système d'authentification par rôle : un compte administrateur peut ajouter, modifier et supprimer des ressources, tandis qu'un utilisateur standard consulte l'inventaire sans pouvoir le modifier. Les ressources sont filtrables par catégorie, statut ou responsable, et l'ensemble peut être exporté en CSV.</p>
-  <p class="content-text">Le contexte simulé est celui de NAALI : les outils référencés sont Gorgias, Yuma AI, HubSpot et Shopify : les plateformes réellement utilisées en alternance, ce qui rend le projet directement ancré dans l'expérience terrain.</p>
-</div>
-
-<div class="content-section">
-  <div class="section-title">Gestion des accès par rôle</div>
-  <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-shield-check"></i></div><div><div class="feature-title">Administrateur</div><div class="feature-desc">Consultation, filtrage, export CSV, ajout, modification et suppression des ressources.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-user"></i></div><div><div class="feature-title">Utilisateur standard</div><div class="feature-desc">Consultation et filtrage uniquement : aucun droit d'écriture sur l'inventaire.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-login"></i></div><div><div class="feature-title">Session localStorage</div><div class="feature-desc">Authentification gérée côté client via localStorage : interface adaptée automatiquement au rôle connecté.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-file-csv"></i></div><div><div class="feature-title">Export CSV</div><div class="feature-desc">Export de l'inventaire complet ou filtré : compatible Excel, Google Sheets et tout outil de gestion.</div></div></div>
-  </div>
+  <p class="content-text">LeadAdmin est un gestionnaire d'inventaire de ressources numériques — logiciels, licences, comptes en ligne, abonnements — conçu pour répondre à la compétence Gérer le patrimoine informatique du référentiel BTS SIO. L'idée est née du constat que les PME gèrent souvent leur inventaire IT dans des tableurs éparpillés, sans vision centralisée ni contrôle des accès.</p>
+  <p class="content-text">L'application propose un système d'authentification par rôle : un compte administrateur peut ajouter, modifier et supprimer des ressources, tandis qu'un utilisateur standard consulte l'inventaire sans pouvoir le modifier. Les ressources sont filtrables par catégorie, statut, contexte et niveau d'accès.</p>
+  <p class="content-text">Le contexte simulé est directement ancré dans mon alternance : les outils référencés sont Gorgias, Yuma AI, HubSpot, Shopify, Shippingbo et Stay AI — les plateformes réellement utilisées chez NAALI. Le projet inclut aussi un volet personnel avec les outils Canva, Pack Office, Kahoot et d'autres.</p>
 </div>
 
 <div class="content-section">
   <div class="section-title">Fonctionnalités</div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-filter"></i></div><div><div class="feature-title">Tableau filtrable</div><div class="feature-desc">Filtres dynamiques par catégorie (logiciel, matériel, licence, accès), statut actif/inactif et responsable.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-layout-dashboard"></i></div><div><div class="feature-title">Indicateurs synthétiques</div><div class="feature-desc">Dashboard avec compteurs : total ressources, actives, licences expirant prochainement.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-tag"></i></div><div><div class="feature-title">Catégorisation</div><div class="feature-desc">Ressources organisées par type : logiciels, licences, équipements, accès : avec champ contexte (Perso/NAALI).</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-device-floppy"></i></div><div><div class="feature-title">Persistance locale</div><div class="feature-desc">Toutes les données stockées en localStorage : aucun serveur requis, déploiement statique possible.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-shield-check"></i></div><div><div class="feature-title">Auth par rôle</div><div class="feature-desc">Compte administrateur (accès complet) et utilisateur standard (lecture seule), interface adaptée automatiquement.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-filter"></i></div><div><div class="feature-title">Inventaire filtrable</div><div class="feature-desc">Filtres dynamiques par catégorie (compte, logiciel, licence, abonnement), statut, contexte et niveau d'accès.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-chart-bar"></i></div><div><div class="feature-title">Dashboard analytique</div><div class="feature-desc">Total ressources, actives, expirées, outils alternance — avec graphiques par catégorie et niveau d'accès.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-file-csv"></i></div><div><div class="feature-title">Export CSV</div><div class="feature-desc">Export de l'inventaire complet ou filtré, compatible Excel et Google Sheets.</div></div></div>
   </div>
 </div>
 
@@ -204,11 +204,12 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   <div class="section-title">Ce que j'en retiens</div>
   <div class="bilan-grid">
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-lock"></i></div><div><div class="bilan-label">Auth côté client</div><div class="bilan-text">Implémenter une auth par rôle sans backend m'a appris les limites du localStorage et les bonnes pratiques.</div></div></div>
-    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-server"></i></div><div><div class="bilan-label">Patrimoine IT</div><div class="bilan-text">Mieux comprendre ce que signifie gérer le patrimoine informatique dans une PME : un vrai besoin métier.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-server"></i></div><div><div class="bilan-label">Patrimoine IT</div><div class="bilan-text">Mieux comprendre ce que signifie gérer le patrimoine informatique d'une PME — un vrai besoin métier.</div></div></div>
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-table-export"></i></div><div><div class="bilan-label">Export CSV</div><div class="bilan-text">Générer un CSV proprement depuis JavaScript : formatage, encodage UTF-8 et déclenchement du téléchargement.</div></div></div>
   </div>
 </div>
-</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+</div>
+<footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
 <script>
 const cursor=document.getElementById('cursor');
 let mx=0,my=0,ld=0;
