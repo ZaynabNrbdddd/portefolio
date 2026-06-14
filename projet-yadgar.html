@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yadgar : Zaynab Nour Ebad</title>
+  <title>Yadgar &mdash; Zaynab Nour Ebad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
 
 /* WRAPPER */
-.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
+.wrapper{max-width:1140px;margin:0 auto;padding:130px 4rem 7rem;}
 
 /* HERO */
 .project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
@@ -129,19 +129,20 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
   h1.project-title{font-size:2.6rem;}
 }
+
   </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="topbar">
-  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+  <a href="index.html#projets" class="nav-logo">Portfolio</a>
 </div>
 <div class="wrapper">
 <div class="project-hero">
   <div class="hero-left">
     <div class="project-eyebrow">Projet personnel &middot; Déployé</div>
     <h1 class="project-title">Yadgar</h1>
-    <p class="project-subtitle">Application web de gestion de budget personnel. Dashboard interactif, suivi des dépenses et revenus, transactions récurrentes, navigation mensuelle et graphiques Chart.js.</p>
+    <p class="project-subtitle">Application web de gestion de budget personnel. Dashboard interactif, suivi des dépenses et revenus, transactions récurrentes, catégories personnalisées et navigation mensuelle.</p>
     <div class="tags-row">
       <span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag">LocalStorage</span><span class="tag">Responsive</span><span class="tag">Dashboard</span><span class="tag">GitHub Pages</span>
     </div>
@@ -150,10 +151,10 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     </div>
   </div>
   <div class="meta-grid">
-    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet personnel : déployé sur GitHub Pages</div></div>
+    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet personnel — déployé sur GitHub Pages</div></div>
     <div class="meta-card"><div class="meta-label">Démo live</div><div class="meta-value">zaynabnrbdddd.github.io/yadgar</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">JS vanilla &middot; Chart.js &middot; LocalStorage &middot; CSS Grid</div></div>
-    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">30/05/2026 : 01/06/2026</div></div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">30/05/2026 au 01/06/2026</div></div>
     <div class="meta-card">
       <div class="meta-label">Compétences E5</div>
       <div class="meta-value pills">
@@ -170,26 +171,35 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : dashboard principal avec graphiques</span></div><div class="screenshot-label">Dashboard : vue mensuelle des finances</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : ajout d'une transaction</span></div><div class="screenshot-label">Formulaire d'ajout de transaction</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : graphique dépenses/revenus</span></div><div class="screenshot-label">Graphique Chart.js mensuel</div></div>
+    <div class="screenshot-slot full">
+      <img src="captures/yadgar-dashboard.png" alt="Dashboard Yadgar">
+      <div class="screenshot-label">Dashboard — vue mensuelle avec revenus, dépenses et solde</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/yadgar-formulaire.png" alt="Formulaire nouvelle dépense Yadgar">
+      <div class="screenshot-label">Ajout d'une nouvelle dépense avec catégorie</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/yadgar-graphique.png" alt="Graphique répartition par catégorie Yadgar">
+      <div class="screenshot-label">Répartition des dépenses par catégorie</div>
+    </div>
   </div>
 </div>
 
 <div class="content-section">
   <div class="section-title">Description</div>
-  <p class="content-text">Yadgar signifie souvenir en persan : un nom choisi pour une application qui garde trace de l'argent qui passe. C'est un outil de gestion budgétaire personnel complet, développé entièrement en JavaScript vanilla et hébergé sur GitHub Pages.</p>
-  <p class="content-text">L'application s'articule autour d'un dashboard mensuel : solde courant, total des revenus, total des dépenses, et un graphique Chart.js qui visualise l'évolution du budget sur les derniers mois. La navigation entre les mois se fait via des flèches, et toutes les données sont persistées en localStorage : aucun serveur, aucune base de données.</p>
-  <p class="content-text">Les transactions récurrentes (loyer, abonnements, salaire) se paramètrent une fois et s'ajoutent automatiquement chaque mois. Les dépenses sont catégorisées pour permettre une analyse par poste. Le design responsive s'adapte aussi bien au mobile qu'au desktop.</p>
+  <p class="content-text">Yadgar signifie souvenir en persan — un nom choisi pour une application qui garde trace de l'argent qui passe. C'est un outil de gestion budgétaire personnel complet, développé entièrement en JavaScript vanilla et hébergé sur GitHub Pages.</p>
+  <p class="content-text">L'application s'articule autour d'un dashboard mensuel : solde courant, total des revenus, total des dépenses, et un graphique circulaire Chart.js qui visualise la répartition par catégorie. La navigation entre les mois se fait via des flèches, et toutes les données sont persistées en localStorage, aucun serveur, aucune base de données.</p>
+  <p class="content-text">Les transactions récurrentes (loyer, abonnements, salaire) se paramètrent une fois et s'ajoutent automatiquement chaque mois. Les dépenses sont catégorisées (alimentation, transport, shopping, autres) pour permettre une analyse par poste.</p>
 </div>
 
 <div class="content-section">
   <div class="section-title">Fonctionnalités</div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-layout-dashboard"></i></div><div><div class="feature-title">Dashboard mensuel</div><div class="feature-desc">Vue synthétique avec solde, revenus, dépenses et graphique d'évolution : navigation mois par mois.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-chart-bar"></i></div><div><div class="feature-title">Graphiques Chart.js</div><div class="feature-desc">Visualisation des dépenses et revenus sous forme de graphiques barres et circulaires interactifs.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-layout-dashboard"></i></div><div><div class="feature-title">Dashboard mensuel</div><div class="feature-desc">Vue synthétique avec solde, revenus, dépenses et dernières transactions — navigation mois par mois.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-chart-donut-3"></i></div><div><div class="feature-title">Graphique Chart.js</div><div class="feature-desc">Visualisation circulaire de la répartition des dépenses par catégorie, mise à jour en temps réel.</div></div></div>
     <div class="feature-card"><div class="feature-icon"><i class="ti ti-repeat"></i></div><div><div class="feature-title">Transactions récurrentes</div><div class="feature-desc">Définition de charges ou revenus fixes mensuels, appliqués automatiquement à chaque nouveau mois.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-device-floppy"></i></div><div><div class="feature-title">Persistance LocalStorage</div><div class="feature-desc">Toutes les données sont sauvegardées localement : aucun compte ni connexion requis.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-tag"></i></div><div><div class="feature-title">Catégories personnalisées</div><div class="feature-desc">Organisation des dépenses par catégorie avec filtrage et vue dédiée par poste de dépense.</div></div></div>
   </div>
 </div>
 
@@ -199,11 +209,12 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   <div class="section-title">Ce que j'en retiens</div>
   <div class="bilan-grid">
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-database"></i></div><div><div class="bilan-label">Modélisation</div><div class="bilan-text">Structurer et persister des données complexes en localStorage demande une vraie réflexion de modélisation.</div></div></div>
-    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-brand-github"></i></div><div><div class="bilan-label">Déploiement</div><div class="bilan-text">Premier projet déployé publiquement sur GitHub Pages : comprendre Git et les GitHub Actions m'a été utile.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-brand-github"></i></div><div><div class="bilan-label">Déploiement</div><div class="bilan-text">Premier projet déployé publiquement sur GitHub Pages — comprendre Git et les GitHub Actions m'a été utile.</div></div></div>
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-target"></i></div><div><div class="bilan-label">Utilité réelle</div><div class="bilan-text">Construire un outil que j'utilise moi-même au quotidien change la façon dont on gère les bugs.</div></div></div>
   </div>
 </div>
-</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+</div>
+<footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
 <script>
 const cursor=document.getElementById('cursor');
 let mx=0,my=0,ld=0;
