@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tier List Generator : Zaynab Nour Ebad</title>
+  <title>Tier List Generator &mdash; Zaynab Nour Ebad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
 
 /* WRAPPER */
-.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
+.wrapper{max-width:1140px;margin:0 auto;padding:130px 4rem 7rem;}
 
 /* HERO */
 .project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
@@ -129,19 +129,20 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
   h1.project-title{font-size:2.6rem;}
 }
+
   </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="topbar">
-  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+  <a href="index.html#projets" class="nav-logo">Portfolio</a>
 </div>
 <div class="wrapper">
 <div class="project-hero">
   <div class="hero-left">
     <div class="project-eyebrow">Projet scolaire &middot; JavaScript</div>
     <h1 class="project-title">Tier List Generator</h1>
-    <p class="project-subtitle">Clone de TierMaker.com construit from scratch en JavaScript vanilla. Drag &amp; Drop HTML5 natif, upload d'images, export canvas et sauvegarde en localStorage.</p>
+    <p class="project-subtitle">Clone de TierMaker.com construit from scratch en JavaScript vanilla. Drag &amp; Drop HTML5 natif, upload d'images via FileReader, export canvas PNG et sauvegarde en localStorage.</p>
     <div class="tags-row">
       <span class="tag">JavaScript</span><span class="tag">HTML5 Drag &amp; Drop</span><span class="tag">Canvas API</span><span class="tag">LocalStorage</span><span class="tag">FileReader</span>
     </div>
@@ -150,10 +151,10 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     </div>
   </div>
   <div class="meta-grid">
-    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire : BTS SIO SLAM</div></div>
+    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire — BTS SIO SLAM</div></div>
     <div class="meta-card"><div class="meta-label">Démo live</div><div class="meta-value">zaynabnrbdddd.github.io/tierlist</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">JS vanilla &middot; Canvas 2D &middot; FileReader &middot; LocalStorage</div></div>
-    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">26/03/2026 : 30/03/2026</div></div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">26/03/2026 au 30/03/2026</div></div>
     <div class="meta-card">
       <div class="meta-label">Compétences E5</div>
       <div class="meta-value pills">
@@ -167,26 +168,35 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : tier list avec items classés</span></div><div class="screenshot-label">Interface principale : classement par tiers</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : upload d'images</span></div><div class="screenshot-label">Upload d'images personnalisées</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : export résultat</span></div><div class="screenshot-label">Export image du classement final</div></div>
+    <div class="screenshot-slot full">
+      <img src="captures/tierlist-rempli.png" alt="Tier list avec films classés">
+      <div class="screenshot-label">Interface principale — classement de films par tiers</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/tierlist-vide.png" alt="Interface vide tier list">
+      <div class="screenshot-label">Interface vide — tiers S à D prêts à recevoir des images</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/tierlist-upload.png" alt="Upload de fichiers images">
+      <div class="screenshot-label">Upload d'images — sélection multiple via FileReader</div>
+    </div>
   </div>
 </div>
 
 <div class="content-section">
   <div class="section-title">Description</div>
-  <p class="content-text">Tier List Generator est un clone fidèle de TierMaker.com, construit entièrement en JavaScript vanilla sans aucun framework ni bibliothèque externe. Le principe est simple : on importe des images, on les classe par glisser-déposer dans des rangées S, A, B, C, D, E, F : et on peut ensuite exporter le résultat en image.</p>
-  <p class="content-text">Ce projet a été l'occasion d'explorer en profondeur l'API Drag &amp; Drop native du HTML5, qui est plus complexe qu'elle n'y paraît : gestion des événements dragstart, dragover, drop, des zones de dépôt, des indicateurs visuels et du réordonnancement en temps réel. L'upload d'images utilise l'API FileReader pour convertir les fichiers locaux en Data URLs exploitables directement dans le navigateur.</p>
-  <p class="content-text">La sauvegarde du classement en localStorage permet de retrouver son travail après fermeture de l'onglet. L'export repose sur Canvas 2D, qui reconstruit l'interface en mémoire pour générer un PNG téléchargeable.</p>
+  <p class="content-text">Tier List Generator est un clone fidèle de TierMaker.com, construit entièrement en JavaScript vanilla sans framework ni bibliothèque externe. Le principe : on importe des images, on les classe par glisser-déposer dans des rangées S, A, B, C, D — et on exporte le résultat en image PNG.</p>
+  <p class="content-text">Ce projet a été l'occasion d'explorer en profondeur l'API Drag &amp; Drop native du HTML5, plus complexe qu'elle n'y paraît : gestion des événements dragstart, dragover, drop, des zones de dépôt, des indicateurs visuels et du réordonnancement en temps réel. L'upload d'images utilise l'API FileReader pour convertir les fichiers locaux en Data URLs exploitables directement dans le navigateur.</p>
+  <p class="content-text">La sauvegarde en localStorage permet de retrouver son classement après fermeture de l'onglet. L'export repose sur Canvas 2D qui reconstruit l'interface en mémoire pour générer un PNG téléchargeable.</p>
 </div>
 
 <div class="content-section">
   <div class="section-title">Fonctionnalités</div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-hand-grab"></i></div><div><div class="feature-title">Drag &amp; Drop HTML5 natif</div><div class="feature-desc">Glisser-déposer entre rangées et zone de réserve, sans jQuery ni bibliothèque externe : API native uniquement.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-upload"></i></div><div><div class="feature-title">Upload d'images</div><div class="feature-desc">Import de fichiers locaux via FileReader API : conversion automatique en Data URL pour affichage immédiat.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-download"></i></div><div><div class="feature-title">Export canvas</div><div class="feature-desc">Le classement complet est redessiné sur un Canvas 2D invisible et exporté en PNG téléchargeable.</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-device-floppy"></i></div><div><div class="feature-title">Sauvegarde LocalStorage</div><div class="feature-desc">Le classement est persisté en localStorage : il survit à la fermeture de l'onglet et au rechargement.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-hand-grab"></i></div><div><div class="feature-title">Drag &amp; Drop HTML5 natif</div><div class="feature-desc">Glisser-déposer entre rangées et zone de réserve, sans jQuery ni bibliothèque externe.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-upload"></i></div><div><div class="feature-title">Upload d'images</div><div class="feature-desc">Import de fichiers locaux via FileReader API, conversion automatique en Data URL pour affichage immédiat.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-download"></i></div><div><div class="feature-title">Export canvas PNG</div><div class="feature-desc">Le classement complet est redessiné sur un Canvas 2D invisible et exporté en PNG téléchargeable.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-device-floppy"></i></div><div><div class="feature-title">Sauvegarde LocalStorage</div><div class="feature-desc">Le classement est persisté en localStorage — il survit à la fermeture de l'onglet et au rechargement.</div></div></div>
   </div>
 </div>
 
@@ -195,12 +205,13 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="content-section">
   <div class="section-title">Ce que j'en retiens</div>
   <div class="bilan-grid">
-    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-cursor-text"></i></div><div><div class="bilan-label">DOM avancé</div><div class="bilan-text">Maîtrisé les événements DOM complexes : drag, drop, pointermove, focus, sans abstraction jQuery.</div></div></div>
-    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-files"></i></div><div><div class="bilan-label">APIs navigateur</div><div class="bilan-text">Première utilisation combinée de FileReader, Canvas 2D et localStorage dans un projet cohérent.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-cursor-text"></i></div><div><div class="bilan-label">DOM avancé</div><div class="bilan-text">Maîtrisé les événements DOM complexes : drag, drop, pointermove, sans abstraction jQuery.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-files"></i></div><div><div class="bilan-label">APIs navigateur</div><div class="bilan-text">Première utilisation combinée de FileReader, Canvas 2D et localStorage dans un seul projet.</div></div></div>
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-copy"></i></div><div><div class="bilan-label">Cloner pour apprendre</div><div class="bilan-text">Reproduire un outil existant est un excellent exercice : on comprend les choix techniques en les refaisant.</div></div></div>
   </div>
 </div>
-</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+</div>
+<footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
 <script>
 const cursor=document.getElementById('cursor');
 let mx=0,my=0,ld=0;
