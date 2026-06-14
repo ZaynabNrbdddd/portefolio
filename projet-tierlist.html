@@ -186,14 +186,14 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><img src="captures/tierlist-rempli.png" alt="Tier list avec films classés"><div class="screenshot-label">Interface principale — classement de films par tiers</div></div>
-    <div class="screenshot-slot"><img src="captures/tierlist-vide.png" alt="Interface vide"><div class="screenshot-label">Interface vide — tiers prêts à recevoir des images</div></div>
-    <div class="screenshot-slot"><img src="captures/tierlist-upload.png" alt="Upload fichiers"><div class="screenshot-label">Upload d'images — sélection multiple via FileReader</div></div>
+    <div class="screenshot-slot full"><img src="captures/tierlist-rempli.png" alt="Tier list avec films classés"><div class="screenshot-label">Interface principale : classement par tiers</div></div>
+    <div class="screenshot-slot"><img src="captures/tierlist-vide.png" alt="Interface vide"><div class="screenshot-label">Interface vide : tiers prêts à recevoir des images</div></div>
+    <div class="screenshot-slot"><img src="captures/tierlist-upload.png" alt="Upload fichiers"><div class="screenshot-label">Upload d'images : sélection multiple via FileReader</div></div>
   </div>
 </div>
 <div class="content-section">
   <div class="section-title">Description</div>
-  <p class="content-text">Tier List Generator est un clone fidèle de TierMaker.com, construit entièrement en JavaScript vanilla sans framework ni bibliothèque externe. Le principe : on importe des images, on les classe par glisser-déposer dans des rangées S, A, B, C, D — et on exporte le résultat en image PNG.</p>
+  <p class="content-text">Tier List Generator est un clone fidèle de TierMaker.com, construit entièrement en JavaScript vanilla sans framework ni bibliothèque externe. Le principe : on importe des images, on les classe par glisser-déposer dans des rangées S, A, B, C, D et on exporte le résultat en image PNG.</p>
   <p class="content-text">Ce projet a été l'occasion d'explorer en profondeur l'API Drag &amp; Drop native du HTML5 : gestion des événements dragstart, dragover, drop, des zones de dépôt, des indicateurs visuels et du réordonnancement en temps réel. L'upload d'images utilise l'API FileReader pour convertir les fichiers locaux en Data URLs exploitables directement dans le navigateur.</p>
   <p class="content-text">La sauvegarde en localStorage permet de retrouver son classement après fermeture de l'onglet. L'export repose sur Canvas 2D qui reconstruit l'interface en mémoire pour générer un PNG téléchargeable.</p>
 </div>
