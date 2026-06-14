@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filtre Kuzco : Zaynab Nour Ebad</title>
+  <title>Filtre Kuzco &mdash; Zaynab Nour Ebad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
 
 /* WRAPPER */
-.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
+.wrapper{max-width:1140px;margin:0 auto;padding:130px 4rem 7rem;}
 
 /* HERO */
 .project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
@@ -129,19 +129,20 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
   h1.project-title{font-size:2.6rem;}
 }
+
   </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="topbar">
-  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+  <a href="index.html#projets" class="nav-logo">Portfolio</a>
 </div>
 <div class="wrapper">
 <div class="project-hero">
   <div class="hero-left">
     <div class="project-eyebrow">Projet scolaire &middot; JavaScript</div>
     <h1 class="project-title">Filtre Kuzco</h1>
-    <p class="project-subtitle">Filtre webcam temps réel avec détection faciale par MediaPipe Face Mesh (468 points). Applique des masques animés sur le visage : inspiré du lama Kuzco du film d'animation Disney.</p>
+    <p class="project-subtitle">Filtre webcam temps réel avec détection faciale par MediaPipe Face Mesh (468 points). Applique des masques animés sur le visage — inspiré du lama Kuzco du film d'animation Disney.</p>
     <div class="tags-row">
       <span class="tag">JavaScript</span><span class="tag">MediaPipe</span><span class="tag">Canvas API</span><span class="tag">Webcam</span><span class="tag">Face Mesh</span><span class="tag">Temps réel</span>
     </div>
@@ -150,10 +151,10 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     </div>
   </div>
   <div class="meta-grid">
-    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire : BTS SIO SLAM</div></div>
+    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire — BTS SIO SLAM</div></div>
     <div class="meta-card"><div class="meta-label">Démo live</div><div class="meta-value">zaynabnrbdddd.github.io/filtre_lama</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">JS vanilla &middot; MediaPipe &middot; Canvas 2D &middot; WebRTC</div></div>
-    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">02/04/2026 : 06/04/2026</div></div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">02/04/2026 au 06/04/2026</div></div>
     <div class="meta-card">
       <div class="meta-label">Compétences E5</div>
       <div class="meta-value pills">
@@ -167,17 +168,26 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : filtre lama actif sur visage</span></div><div class="screenshot-label">Filtre Lama : détection faciale en temps réel</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : filtre Kuzco</span></div><div class="screenshot-label">Filtre Kuzco : couronne animée</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : écran de chargement</span></div><div class="screenshot-label">Chargement MediaPipe</div></div>
+    <div class="screenshot-slot full">
+      <img src="captures/kuzco-lama.png" alt="Filtre lama actif">
+      <div class="screenshot-label">Filtre Lama — détection faciale en temps réel</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/kuzco-kuzco.png" alt="Filtre Kuzco avec couronne">
+      <div class="screenshot-label">Filtre Kuzco — lama avec couronne</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/kuzco-loading.png" alt="Chargement MediaPipe">
+      <div class="screenshot-label">Écran de chargement MediaPipe</div>
+    </div>
   </div>
 </div>
 
 <div class="content-section">
   <div class="section-title">Description</div>
-  <p class="content-text">Filtre Kuzco est une application web qui utilise la caméra de l'utilisateur pour détecter les points caractéristiques du visage en temps réel et y superposer des masques animés, dans l'esprit des filtres Snapchat ou Instagram. Le nom est un clin d'oeil au personnage de Kuzco du film Kuzco, l'Empereur Mégalo : transformé en lama.</p>
-  <p class="content-text">Techniquement, le projet s'appuie sur MediaPipe Face Mesh, une bibliothèque de machine learning de Google qui détecte 468 points de repère sur le visage par image. Ces coordonnées sont utilisées pour positionner et orienter les éléments graphiques dessinés sur un canvas HTML5 superposé au flux vidéo, avec un effet miroir pour un résultat naturel.</p>
-  <p class="content-text">Un algorithme de lissage exponentiel (facteur 0,4) est appliqué aux coordonnées entre chaque frame pour éviter les tremblements et obtenir un rendu fluide. L'utilisateur peut basculer entre le filtre Lama, le filtre Kuzco ou désactiver l'effet via des boutons.</p>
+  <p class="content-text">Filtre Kuzco est une application web qui utilise la caméra de l'utilisateur pour détecter les points caractéristiques du visage en temps réel et y superposer des masques animés, dans l'esprit des filtres Snapchat ou Instagram. Le nom est un clin d'oeil au personnage de Kuzco du film Kuzco, l'Empereur Mégalo — transformé en lama.</p>
+  <p class="content-text">Le projet s'appuie sur MediaPipe Face Mesh, une bibliothèque de machine learning de Google qui détecte 468 points de repère sur le visage par image. Ces coordonnées sont utilisées pour positionner et orienter les éléments graphiques dessinés sur un canvas HTML5 superposé au flux vidéo, avec un effet miroir pour un résultat naturel.</p>
+  <p class="content-text">Un algorithme de lissage exponentiel (facteur 0,4) est appliqué aux coordonnées entre chaque frame pour éviter les tremblements et obtenir un rendu fluide. L'utilisateur peut basculer entre le filtre Lama, le filtre Kuzco ou désactiver l'effet via les boutons en bas d'écran.</p>
 </div>
 
 <div class="content-section">
@@ -185,7 +195,7 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   <div class="features-grid" style="grid-template-columns:repeat(5,1fr);">
     <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-camera"></i></div><div><div class="feature-title">Webcam</div><div class="feature-desc">WebRTC getUserMedia</div></div></div>
     <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-brain"></i></div><div><div class="feature-title">Analyse</div><div class="feature-desc">MediaPipe Face Mesh 468 pts</div></div></div>
-    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-wave-sine"></i></div><div><div class="feature-title">Lissage</div><div class="feature-desc">Smoothing exponentiel 0,4</div></div></div>
+    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-wave-sine"></i></div><div><div class="feature-title">Lissage</div><div class="feature-desc">Smoothing exp. 0,4</div></div></div>
     <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-palette"></i></div><div><div class="feature-title">Rendu</div><div class="feature-desc">Canvas 2D, effet miroir</div></div></div>
     <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-device-tv"></i></div><div><div class="feature-title">Sortie</div><div class="feature-desc">Affichage live temps réel</div></div></div>
   </div>
@@ -211,7 +221,8 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-rocket"></i></div><div><div class="bilan-label">Performance</div><div class="bilan-text">Appris à optimiser un rendu temps réel : willReadFrequently, lissage, réduction des redraws.</div></div></div>
   </div>
 </div>
-</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+</div>
+<footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
 <script>
 const cursor=document.getElementById('cursor');
 let mx=0,my=0,ld=0;
