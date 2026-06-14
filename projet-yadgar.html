@@ -41,7 +41,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
 
 /* WRAPPER */
-.wrapper{max-width:1140px;margin:0 auto;padding:130px 4rem 7rem;}
+.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
 
 /* HERO */
 .project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
@@ -72,7 +72,7 @@ h1.project-title{font-family:var(--font-body);font-size:3.6rem;font-weight:800;c
 /* SCREENSHOTS */
 .screenshots-section{margin-bottom:4rem;}
 .screenshots-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.screenshot-slot{background:var(--black-2);border:1px solid rgba(255,45,155,.2);border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;transition:border-color .2s,box-shadow .2s;}
+.screenshot-slot{background:var(--black-2);border:1px solid rgba(255,45,155,.2);border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;transition:border-color .2s,box-shadow .2s;cursor:none;}
 .screenshot-slot:hover{border-color:rgba(255,45,155,.4);box-shadow:0 0 20px rgba(255,45,155,.08);}
 .screenshot-slot img{width:100%;height:100%;object-fit:cover;display:block;}
 .screenshot-slot.full{grid-column:1/-1;aspect-ratio:16/7;}
@@ -130,6 +130,30 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   h1.project-title{font-size:2.6rem;}
 }
 
+/* MODAL CARROUSEL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-inner{position:relative;width:100%;max-width:1100px;padding:0 5rem;display:flex;align-items:center;justify-content:center;}
+.modal-img-wrap{width:100%;display:flex;align-items:center;justify-content:center;}
+.modal-img-wrap img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px;display:block;}
+.modal-close{position:fixed;top:1.5rem;right:2rem;width:40px;height:40px;background:rgba(255,45,155,.15);border:1px solid rgba(255,45,155,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s;z-index:9001;}
+.modal-close:hover{background:rgba(255,45,155,.35);}
+.modal-close i{font-size:1.1rem;color:var(--pink);}
+.modal-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,45,155,.12);border:1px solid rgba(255,45,155,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s;z-index:9001;}
+.modal-nav:hover{background:rgba(255,45,155,.3);}
+.modal-nav i{font-size:1.2rem;color:var(--pink);}
+.modal-prev{left:1.5rem;}
+.modal-next{right:1.5rem;}
+.modal-dots{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:9001;}
+.modal-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s;}
+.modal-dot.active{background:var(--pink);}
+.modal-nav.hidden{display:none;}
+/* overlay hover sur les slots */
+.screenshot-slot .slot-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .25s;z-index:3;}
+.screenshot-slot:hover .slot-overlay{background:rgba(0,0,0,.45);}
+.slot-overlay i{color:var(--white);font-size:1.6rem;opacity:0;transform:scale(.8);transition:opacity .25s,transform .25s;}
+.screenshot-slot:hover .slot-overlay i{opacity:1;transform:scale(1);}
+
   </style>
 </head>
 <body>
@@ -155,44 +179,23 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="meta-card"><div class="meta-label">Démo live</div><div class="meta-value">zaynabnrbdddd.github.io/yadgar</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">JS vanilla &middot; Chart.js &middot; LocalStorage &middot; CSS Grid</div></div>
     <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">30/05/2026 au 01/06/2026</div></div>
-    <div class="meta-card">
-      <div class="meta-label">Compétences E5</div>
-      <div class="meta-value pills">
-        <span class="meta-pill">Répondre aux incidents</span>
-        <span class="meta-pill">Travailler en mode projet</span>
-        <span class="meta-pill">Mettre à disposition</span>
-        <span class="meta-pill">Concevoir une solution</span>
-        <span class="meta-pill">Gérer les données</span>
-      </div>
-    </div>
+    <div class="meta-card"><div class="meta-label">Compétences E5</div><div class="meta-value pills"><span class="meta-pill">Répondre aux incidents</span><span class="meta-pill">Travailler en mode projet</span><span class="meta-pill">Mettre à disposition</span><span class="meta-pill">Concevoir une solution</span><span class="meta-pill">Gérer les données</span></div></div>
   </div>
 </div>
-
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full">
-      <img src="captures/yadgar-dashboard.png" alt="Dashboard Yadgar">
-      <div class="screenshot-label">Dashboard — vue mensuelle avec revenus, dépenses et solde</div>
-    </div>
-    <div class="screenshot-slot">
-      <img src="captures/yadgar-formulaire.png" alt="Formulaire nouvelle dépense Yadgar">
-      <div class="screenshot-label">Ajout d'une nouvelle dépense avec catégorie</div>
-    </div>
-    <div class="screenshot-slot">
-      <img src="captures/yadgar-graphique.png" alt="Graphique répartition par catégorie Yadgar">
-      <div class="screenshot-label">Répartition des dépenses par catégorie</div>
-    </div>
+    <div class="screenshot-slot full"><img src="captures/yadgar-dashboard.png" alt="Dashboard Yadgar"><div class="screenshot-label">Dashboard — vue mensuelle avec revenus, dépenses et solde</div></div>
+    <div class="screenshot-slot"><img src="captures/yadgar-formulaire.png" alt="Formulaire nouvelle dépense"><div class="screenshot-label">Ajout d'une nouvelle dépense avec catégorie</div></div>
+    <div class="screenshot-slot"><img src="captures/yadgar-graphique.png" alt="Graphique répartition catégories"><div class="screenshot-label">Répartition des dépenses par catégorie</div></div>
   </div>
 </div>
-
 <div class="content-section">
   <div class="section-title">Description</div>
   <p class="content-text">Yadgar signifie souvenir en persan — un nom choisi pour une application qui garde trace de l'argent qui passe. C'est un outil de gestion budgétaire personnel complet, développé entièrement en JavaScript vanilla et hébergé sur GitHub Pages.</p>
-  <p class="content-text">L'application s'articule autour d'un dashboard mensuel : solde courant, total des revenus, total des dépenses, et un graphique circulaire Chart.js qui visualise la répartition par catégorie. La navigation entre les mois se fait via des flèches, et toutes les données sont persistées en localStorage, aucun serveur, aucune base de données.</p>
-  <p class="content-text">Les transactions récurrentes (loyer, abonnements, salaire) se paramètrent une fois et s'ajoutent automatiquement chaque mois. Les dépenses sont catégorisées (alimentation, transport, shopping, autres) pour permettre une analyse par poste.</p>
+  <p class="content-text">L'application s'articule autour d'un dashboard mensuel : solde courant, total des revenus, total des dépenses, et un graphique circulaire Chart.js qui visualise la répartition par catégorie. La navigation entre les mois se fait via des flèches, et toutes les données sont persistées en localStorage.</p>
+  <p class="content-text">Les transactions récurrentes (loyer, abonnements, salaire) se paramètrent une fois et s'ajoutent automatiquement chaque mois. Les dépenses sont catégorisées pour permettre une analyse par poste.</p>
 </div>
-
 <div class="content-section">
   <div class="section-title">Fonctionnalités</div>
   <div class="features-grid">
@@ -202,14 +205,12 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="feature-card"><div class="feature-icon"><i class="ti ti-tag"></i></div><div><div class="feature-title">Catégories personnalisées</div><div class="feature-desc">Organisation des dépenses par catégorie avec filtrage et vue dédiée par poste de dépense.</div></div></div>
   </div>
 </div>
-
 <div class="divider"></div>
-
 <div class="content-section">
   <div class="section-title">Ce que j'en retiens</div>
   <div class="bilan-grid">
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-database"></i></div><div><div class="bilan-label">Modélisation</div><div class="bilan-text">Structurer et persister des données complexes en localStorage demande une vraie réflexion de modélisation.</div></div></div>
-    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-brand-github"></i></div><div><div class="bilan-label">Déploiement</div><div class="bilan-text">Premier projet déployé publiquement sur GitHub Pages — comprendre Git et les GitHub Actions m'a été utile.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-brand-github"></i></div><div><div class="bilan-label">Déploiement</div><div class="bilan-text">Premier projet déployé publiquement sur GitHub Pages — comprendre Git m'a été utile.</div></div></div>
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-target"></i></div><div><div class="bilan-label">Utilité réelle</div><div class="bilan-text">Construire un outil que j'utilise moi-même au quotidien change la façon dont on gère les bugs.</div></div></div>
   </div>
 </div>
@@ -234,6 +235,103 @@ document.querySelectorAll('a,button,.meta-card,.feature-card,.bilan-card,.screen
   el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
   el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
 });
+
+// MODAL CARROUSEL
+(function(){
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <button class="modal-close" id="modal-close"><i class="ti ti-x"></i></button>
+    <button class="modal-nav modal-prev" id="modal-prev"><i class="ti ti-chevron-left"></i></button>
+    <div class="modal-inner"><div class="modal-img-wrap"><img id="modal-img" src="" alt=""></div></div>
+    <button class="modal-nav modal-next" id="modal-next"><i class="ti ti-chevron-right"></i></button>
+    <div class="modal-dots" id="modal-dots"></div>
+  `;
+  document.body.appendChild(overlay);
+
+  let images = [];
+  let current = 0;
+
+  function getSlotImages(){
+    const slots = document.querySelectorAll('.screenshot-slot');
+    const imgs = [];
+    slots.forEach(slot => {
+      const img = slot.querySelector('img');
+      const label = slot.querySelector('.screenshot-label');
+      if(img) imgs.push({ src: img.src, label: label ? label.textContent : '' });
+    });
+    return imgs;
+  }
+
+  function openModal(idx){
+    images = getSlotImages();
+    if(!images.length) return;
+    current = idx;
+    update();
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function update(){
+    const modalImg = document.getElementById('modal-img');
+    const dots = document.getElementById('modal-dots');
+    const prev = document.getElementById('modal-prev');
+    const next = document.getElementById('modal-next');
+    modalImg.src = images[current].src;
+    modalImg.alt = images[current].label;
+    // dots
+    dots.innerHTML = '';
+    images.forEach((_,i) => {
+      const d = document.createElement('div');
+      d.className = 'modal-dot' + (i===current?' active':'');
+      d.addEventListener('click', ()=>{ current=i; update(); });
+      dots.appendChild(d);
+    });
+    prev.classList.toggle('hidden', images.length <= 1);
+    next.classList.toggle('hidden', images.length <= 1);
+  }
+
+  // Ajouter overlay + click sur chaque slot avec image
+  document.querySelectorAll('.screenshot-slot').forEach((slot, idx) => {
+    if(!slot.querySelector('img')) return;
+    // overlay icone
+    const ov = document.createElement('div');
+    ov.className = 'slot-overlay';
+    ov.innerHTML = '<i class="ti ti-zoom-in"></i>';
+    slot.appendChild(ov);
+    slot.addEventListener('click', () => {
+      const imgs = getSlotImages();
+      // trouver l index de ce slot parmi ceux qui ont des images
+      const slotImg = slot.querySelector('img');
+      const idx2 = imgs.findIndex(i => i.src === slotImg.src);
+      openModal(idx2 >= 0 ? idx2 : 0);
+    });
+  });
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-prev').addEventListener('click', ()=>{ current=(current-1+images.length)%images.length; update(); });
+  document.getElementById('modal-next').addEventListener('click', ()=>{ current=(current+1)%images.length; update(); });
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
+  document.addEventListener('keydown', e=>{
+    if(!overlay.classList.contains('open')) return;
+    if(e.key==='Escape') closeModal();
+    if(e.key==='ArrowLeft'){ current=(current-1+images.length)%images.length; update(); }
+    if(e.key==='ArrowRight'){ current=(current+1)%images.length; update(); }
+  });
+
+  // cursor hover sur boutons modal
+  [document.getElementById('modal-close'), document.getElementById('modal-prev'), document.getElementById('modal-next')].forEach(el=>{
+    if(!el) return;
+    el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+  });
+})();
+
 </script>
 </body>
 </html>
