@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raflesia : Zaynab Nour Ebad</title>
+  <title>Raflesia &mdash; Zaynab Nour Ebad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@ h1.project-title{font-family:var(--font-body);font-size:3.6rem;font-weight:800;c
 /* SCREENSHOTS */
 .screenshots-section{margin-bottom:4rem;}
 .screenshots-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.screenshot-slot{background:var(--black-2);border:1px solid rgba(255,45,155,.2);border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;transition:border-color .2s,box-shadow .2s;}
+.screenshot-slot{background:var(--black-2);border:1px solid rgba(255,45,155,.2);border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;transition:border-color .2s,box-shadow .2s;cursor:none;}
 .screenshot-slot:hover{border-color:rgba(255,45,155,.4);box-shadow:0 0 20px rgba(255,45,155,.08);}
 .screenshot-slot img{width:100%;height:100%;object-fit:cover;display:block;}
 .screenshot-slot.full{grid-column:1/-1;aspect-ratio:16/7;}
@@ -129,12 +129,37 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
   h1.project-title{font-size:2.6rem;}
 }
+
+/* MODAL CARROUSEL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-inner{position:relative;width:100%;max-width:1100px;padding:0 5rem;display:flex;align-items:center;justify-content:center;}
+.modal-img-wrap{width:100%;display:flex;align-items:center;justify-content:center;}
+.modal-img-wrap img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px;display:block;}
+.modal-close{position:fixed;top:1.5rem;right:2rem;width:40px;height:40px;background:rgba(255,45,155,.15);border:1px solid rgba(255,45,155,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s;z-index:9001;}
+.modal-close:hover{background:rgba(255,45,155,.35);}
+.modal-close i{font-size:1.1rem;color:var(--pink);}
+.modal-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,45,155,.12);border:1px solid rgba(255,45,155,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s;z-index:9001;}
+.modal-nav:hover{background:rgba(255,45,155,.3);}
+.modal-nav i{font-size:1.2rem;color:var(--pink);}
+.modal-prev{left:1.5rem;}
+.modal-next{right:1.5rem;}
+.modal-dots{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:9001;}
+.modal-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s;}
+.modal-dot.active{background:var(--pink);}
+.modal-nav.hidden{display:none;}
+/* overlay hover sur les slots */
+.screenshot-slot .slot-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .25s;z-index:3;}
+.screenshot-slot:hover .slot-overlay{background:rgba(0,0,0,.45);}
+.slot-overlay i{color:var(--white);font-size:1.6rem;opacity:0;transform:scale(.8);transition:opacity .25s,transform .25s;}
+.screenshot-slot:hover .slot-overlay i{opacity:1;transform:scale(1);}
+
   </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="topbar">
-  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+  <a href="index.html#projets" class="nav-logo">Portfolio</a>
 </div>
 <div class="wrapper">
 <div class="project-hero">
@@ -148,36 +173,26 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   </div>
   <div class="meta-grid">
     <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet personnel</div></div>
-    <div class="meta-card"><div class="meta-label">Thème</div><div class="meta-value">Botanique : apprentissage des plantes</div></div>
+    <div class="meta-card"><div class="meta-label">Thème</div><div class="meta-value">Botanique — apprentissage des plantes</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">HTML &middot; CSS &middot; JavaScript vanilla</div></div>
-    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">04/04/2026 : 10/06/2026</div></div>
-    <div class="meta-card">
-      <div class="meta-label">Compétences E5</div>
-      <div class="meta-value pills">
-        <span class="meta-pill">Travailler en mode projet</span>
-        <span class="meta-pill">Concevoir une solution</span>
-        <span class="meta-pill">Développer la présence en ligne</span>
-      </div>
-    </div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">04/04/2026 au 10/06/2026</div></div>
+    <div class="meta-card"><div class="meta-label">Compétences E5</div><div class="meta-value pills"><span class="meta-pill">Travailler en mode projet</span><span class="meta-pill">Concevoir une solution</span><span class="meta-pill">Développer la présence en ligne</span></div></div>
   </div>
 </div>
-
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : écran d'accueil Raflesia</span></div><div class="screenshot-label">Écran d'accueil : sélection du mode de jeu</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : mode quiz en cours</span></div><div class="screenshot-label">Mode quiz : deviner la plante</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : fiche botanique</span></div><div class="screenshot-label">Fiche botanique détaillée</div></div>
+    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture à venir</span></div><div class="screenshot-label">Écran d'accueil — sélection du mode de jeu</div></div>
+    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture à venir</span></div><div class="screenshot-label">Mode quiz — deviner la plante</div></div>
+    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture à venir</span></div><div class="screenshot-label">Fiche botanique détaillée</div></div>
   </div>
 </div>
-
 <div class="content-section">
   <div class="section-title">Description</div>
-  <p class="content-text">Raflesia est un projet personnel qui me tenait à coeur : créer une application web pour apprendre la botanique de façon ludique. Le nom est un hommage à la Rafflesia arnoldii, la plus grande fleur du monde : une plante aussi fascinante qu'étrange, à l'image de ce projet décalé.</p>
-  <p class="content-text">L'application propose cinq modes de jeu distincts qui abordent la botanique sous différents angles : reconnaître une plante à partir de sa photo, retrouver son nom depuis sa description, associer une plante à sa famille, compléter des caractéristiques botaniques ou encore classer des plantes par catégories. Chaque mode a ses propres règles et son propre rythme.</p>
-  <p class="content-text">L'identité visuelle est entièrement originale : couleurs, icônes, animations et mise en page ont été conçues pour créer une atmosphère cohérente, entre nature et design contemporain. C'est le projet qui m'a le plus permis d'exprimer ma sensibilité graphique.</p>
+  <p class="content-text">Raflesia est un projet personnel qui me tenait à coeur : créer une application web pour apprendre la botanique de façon ludique. Le nom est un hommage à la Rafflesia arnoldii, la plus grande fleur du monde, une plante aussi fascinante qu'étrange, à l'image de ce projet décalé.</p>
+  <p class="content-text">L'application propose cinq modes de jeu distincts qui abordent la botanique sous différents angles : reconnaître une plante à partir de sa photo, retrouver son nom depuis sa description, associer une plante à sa famille, compléter des caractéristiques botaniques ou classer des plantes par catégories.</p>
+  <p class="content-text">L'identité visuelle est entièrement originale — couleurs, icônes, animations et mise en page ont été conçues pour créer une atmosphère cohérente, entre nature et design contemporain.</p>
 </div>
-
 <div class="content-section">
   <div class="section-title">5 modes de jeu</div>
   <div class="features-grid" style="grid-template-columns:repeat(5,1fr);">
@@ -188,7 +203,6 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-sort-ascending"></i></div><div><div class="feature-title">Classer</div><div class="feature-desc">Trier les plantes par catégories</div></div></div>
   </div>
 </div>
-
 <div class="content-section">
   <div class="section-title">Fonctionnalités</div>
   <div class="features-grid">
@@ -198,9 +212,7 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="feature-card"><div class="feature-icon"><i class="ti ti-device-mobile"></i></div><div><div class="feature-title">Responsive</div><div class="feature-desc">Interface adaptée à tous les écrans, jouable aussi bien sur mobile que sur desktop.</div></div></div>
   </div>
 </div>
-
 <div class="divider"></div>
-
 <div class="content-section">
   <div class="section-title">Ce que j'en retiens</div>
   <div class="bilan-grid">
@@ -209,7 +221,8 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-heart"></i></div><div><div class="bilan-label">Motivation</div><div class="bilan-text">Un projet personnel motivé produit du code de meilleure qualité qu'un TP contraint.</div></div></div>
   </div>
 </div>
-</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+</div>
+<footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
 <script>
 const cursor=document.getElementById('cursor');
 let mx=0,my=0,ld=0;
@@ -229,6 +242,103 @@ document.querySelectorAll('a,button,.meta-card,.feature-card,.bilan-card,.screen
   el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
   el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
 });
+
+// MODAL CARROUSEL
+(function(){
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <button class="modal-close" id="modal-close"><i class="ti ti-x"></i></button>
+    <button class="modal-nav modal-prev" id="modal-prev"><i class="ti ti-chevron-left"></i></button>
+    <div class="modal-inner"><div class="modal-img-wrap"><img id="modal-img" src="" alt=""></div></div>
+    <button class="modal-nav modal-next" id="modal-next"><i class="ti ti-chevron-right"></i></button>
+    <div class="modal-dots" id="modal-dots"></div>
+  `;
+  document.body.appendChild(overlay);
+
+  let images = [];
+  let current = 0;
+
+  function getSlotImages(){
+    const slots = document.querySelectorAll('.screenshot-slot');
+    const imgs = [];
+    slots.forEach(slot => {
+      const img = slot.querySelector('img');
+      const label = slot.querySelector('.screenshot-label');
+      if(img) imgs.push({ src: img.src, label: label ? label.textContent : '' });
+    });
+    return imgs;
+  }
+
+  function openModal(idx){
+    images = getSlotImages();
+    if(!images.length) return;
+    current = idx;
+    update();
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function update(){
+    const modalImg = document.getElementById('modal-img');
+    const dots = document.getElementById('modal-dots');
+    const prev = document.getElementById('modal-prev');
+    const next = document.getElementById('modal-next');
+    modalImg.src = images[current].src;
+    modalImg.alt = images[current].label;
+    // dots
+    dots.innerHTML = '';
+    images.forEach((_,i) => {
+      const d = document.createElement('div');
+      d.className = 'modal-dot' + (i===current?' active':'');
+      d.addEventListener('click', ()=>{ current=i; update(); });
+      dots.appendChild(d);
+    });
+    prev.classList.toggle('hidden', images.length <= 1);
+    next.classList.toggle('hidden', images.length <= 1);
+  }
+
+  // Ajouter overlay + click sur chaque slot avec image
+  document.querySelectorAll('.screenshot-slot').forEach((slot, idx) => {
+    if(!slot.querySelector('img')) return;
+    // overlay icone
+    const ov = document.createElement('div');
+    ov.className = 'slot-overlay';
+    ov.innerHTML = '<i class="ti ti-zoom-in"></i>';
+    slot.appendChild(ov);
+    slot.addEventListener('click', () => {
+      const imgs = getSlotImages();
+      // trouver l index de ce slot parmi ceux qui ont des images
+      const slotImg = slot.querySelector('img');
+      const idx2 = imgs.findIndex(i => i.src === slotImg.src);
+      openModal(idx2 >= 0 ? idx2 : 0);
+    });
+  });
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-prev').addEventListener('click', ()=>{ current=(current-1+images.length)%images.length; update(); });
+  document.getElementById('modal-next').addEventListener('click', ()=>{ current=(current+1)%images.length; update(); });
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
+  document.addEventListener('keydown', e=>{
+    if(!overlay.classList.contains('open')) return;
+    if(e.key==='Escape') closeModal();
+    if(e.key==='ArrowLeft'){ current=(current-1+images.length)%images.length; update(); }
+    if(e.key==='ArrowRight'){ current=(current+1)%images.length; update(); }
+  });
+
+  // cursor hover sur boutons modal
+  [document.getElementById('modal-close'), document.getElementById('modal-prev'), document.getElementById('modal-next')].forEach(el=>{
+    if(!el) return;
+    el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+  });
+})();
+
 </script>
 </body>
 </html>
