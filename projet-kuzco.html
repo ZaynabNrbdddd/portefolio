@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtre Kuzco : Zaynab Nour Ebad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <style>
+/* === SHARED STYLES : pages projet portfolio Zaynab === */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --pink:#FF2D9B;--pink-light:#FF80C8;--pink-pale:#FFB3DF;--pink-dark:#CC1177;
+  --pink-glow:rgba(255,45,155,.4);
+  --black:#080808;--black-2:#111111;--black-3:#1A1A1A;
+  --gray:#444;--gray-mid:#666;--gray-light:#999;--white:#fff;
+  --font-display:'UnifrakturMaguntia',cursive;
+  --font-body:'Poppins',sans-serif;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --leopard:url('../leopard.jpg');
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);min-height:100vh;overflow-x:hidden;cursor:none;}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.07) 2px,rgba(0,0,0,.07) 4px);pointer-events:none;z-index:9990;}
+
+/* CURSOR */
+.cursor{position:fixed;width:14px;height:14px;background:var(--pink);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .15s;box-shadow:0 0 12px var(--pink),0 0 24px var(--pink-glow);}
+.cursor.hover{width:22px;height:22px;background:var(--white);box-shadow:0 0 14px rgba(255,255,255,.5);}
+.dust{position:fixed;pointer-events:none;border-radius:50%;z-index:9996;transform:translate(-50%,-50%);animation:dustFade .55s ease-out forwards;}
+@keyframes dustFade{0%{opacity:.9;transform:translate(-50%,-50%) scale(1);}100%{opacity:0;transform:translate(-50%,-160%) scale(.2);}}
+
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--black-2);}
+::-webkit-scrollbar-thumb{background:var(--pink);border-radius:99px;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;padding:0 4rem;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,45,155,.2);}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;color:var(--white);text-decoration:none;cursor:none;text-shadow:0 0 10px var(--pink),0 0 30px var(--pink-glow);display:flex;align-items:center;gap:8px;transition:text-shadow .2s;}
+.nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
+
+/* WRAPPER */
+.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
+
+/* HERO */
+.project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
+.hero-left{}
+.project-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,45,155,.08);border:1px solid rgba(255,45,155,.25);border-radius:var(--radius-pill);padding:.3rem 1rem;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-pale);margin-bottom:1.25rem;}
+h1.project-title{font-family:var(--font-body);font-size:3.6rem;font-weight:800;color:var(--white);line-height:1.05;margin-bottom:1rem;letter-spacing:-.02em;}
+.project-subtitle{font-size:.9rem;color:var(--gray-mid);line-height:1.85;margin-bottom:1.75rem;max-width:480px;}
+.tags-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;}
+.tag{padding:.25rem .8rem;border-radius:var(--radius-pill);font-size:.62rem;font-weight:700;background:rgba(255,45,155,.1);color:var(--pink-light);border:1px solid rgba(255,45,155,.3);letter-spacing:.04em;text-transform:uppercase;}
+.btns-row{display:flex;flex-wrap:wrap;gap:.75rem;}
+.btn-discover{display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:var(--white);padding:.85rem 2rem;border-radius:var(--radius-pill);font-size:.78rem;font-weight:700;text-decoration:none;cursor:none;letter-spacing:.06em;text-transform:uppercase;transition:transform .2s,box-shadow .2s,background .2s;box-shadow:0 0 20px var(--pink-glow);}
+.btn-discover:hover{background:var(--pink-dark);transform:translateY(-3px);box-shadow:0 0 30px var(--pink);}
+
+/* META CARDS côté droit */
+.meta-grid{display:flex;flex-direction:column;gap:.8rem;}
+.meta-card{background:var(--black-2);border:1px solid rgba(255,45,155,.2);border-radius:var(--radius-sm);padding:1rem 1.25rem;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s;transform-style:preserve-3d;}
+.meta-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--pink);box-shadow:0 0 8px var(--pink);}
+.meta-card:hover{border-color:rgba(255,45,155,.5);box-shadow:0 0 20px rgba(255,45,155,.1);}
+.meta-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:.25rem;}
+.meta-value{font-size:.82rem;font-weight:600;color:var(--white);line-height:1.5;}
+.meta-value.pills{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem;}
+.meta-pill{padding:.15rem .6rem;border-radius:var(--radius-pill);font-size:.6rem;font-weight:700;background:rgba(255,45,155,.1);color:var(--pink-light);border:1px solid rgba(255,45,155,.25);letter-spacing:.04em;text-transform:uppercase;}
+
+/* SECTION TITLES */
+.section-title{font-family:var(--font-body);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;letter-spacing:-.01em;}
+.section-title::before{content:'';display:inline-block;width:16px;height:2px;background:var(--pink);box-shadow:0 0 6px var(--pink);flex-shrink:0;}
+
+/* SCREENSHOTS */
+.screenshots-section{margin-bottom:4rem;}
+.screenshots-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.screenshot-slot{background:var(--black-2);border:1px solid rgba(255,45,155,.2);border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;transition:border-color .2s,box-shadow .2s;}
+.screenshot-slot:hover{border-color:rgba(255,45,155,.4);box-shadow:0 0 20px rgba(255,45,155,.08);}
+.screenshot-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.screenshot-slot.full{grid-column:1/-1;aspect-ratio:16/7;}
+.screenshot-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.72rem;font-weight:500;letter-spacing:.04em;text-align:center;padding:1rem;}
+.screenshot-placeholder i{font-size:1.8rem;color:rgba(255,45,155,.3);}
+.screenshot-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.85));padding:.6rem .9rem;font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-pale);}
+
+/* CONTENT SECTIONS */
+.content-section{margin-bottom:3.5rem;}
+.content-text{font-size:.87rem;color:var(--gray-mid);line-height:1.9;}
+.content-text+.content-text{margin-top:.9rem;}
+
+/* FEATURE CARDS : tilt + hover identique au portfolio */
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem;}
+.feature-card{background:var(--black-2);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:1.25rem 1.4rem;display:flex;gap:1rem;align-items:flex-start;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s;transform-style:preserve-3d;will-change:transform;}
+.feature-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--pink);box-shadow:0 0 8px var(--pink);transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.16,1,.3,1);}
+.feature-card:hover{border-color:rgba(255,45,155,.2);box-shadow:0 0 20px rgba(255,45,155,.06);}
+.feature-card:hover::before{transform:scaleY(1);}
+.feature-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,45,155,.1);border:1px solid rgba(255,45,155,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem;}
+.feature-icon i{font-size:1rem;color:var(--pink);}
+.feature-title{font-size:.83rem;font-weight:700;color:var(--white);margin-bottom:.3rem;}
+.feature-desc{font-size:.74rem;color:var(--gray-mid);line-height:1.65;}
+
+/* BILAN CARDS : même style */
+.bilan-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-top:1.25rem;}
+.bilan-card{background:var(--black-2);border:1px solid rgba(255,45,155,.15);border-radius:var(--radius);padding:1.2rem 1.3rem;display:flex;gap:1rem;align-items:flex-start;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s;transform-style:preserve-3d;}
+.bilan-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--pink);box-shadow:0 0 8px var(--pink);transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.16,1,.3,1);}
+.bilan-card:hover{border-color:rgba(255,45,155,.3);box-shadow:0 0 20px rgba(255,45,155,.08);}
+.bilan-card:hover::before{transform:scaleY(1);}
+.bilan-icon-wrap{width:36px;height:36px;border-radius:50%;background:rgba(255,45,155,.1);border:1px solid rgba(255,45,155,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bilan-icon-wrap i{font-size:1rem;color:var(--pink);}
+.bilan-label{font-size:.7rem;font-weight:800;color:var(--white);margin-bottom:.25rem;letter-spacing:-.01em;}
+.bilan-text{font-size:.72rem;color:var(--gray-mid);line-height:1.6;}
+
+/* COMPÉTENCES E5 */
+.e5-grid{display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;}
+.e5-item{display:flex;align-items:center;gap:.9rem;background:var(--black-2);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius-sm);padding:.75rem 1.1rem;font-size:.78rem;color:var(--gray-light);transition:border-color .2s,background .2s;}
+.e5-item:hover{background:rgba(255,45,155,.04);border-color:rgba(255,45,155,.15);}
+.e5-item i{font-size:1rem;color:var(--pink);flex-shrink:0;}
+.e5-item strong{color:var(--white);font-weight:600;}
+
+/* DIVISEUR */
+.divider{width:100%;height:1px;background:rgba(255,255,255,.06);margin:3.5rem 0;}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,.1);font-size:.7rem;color:var(--gray);font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  body{cursor:auto;}.cursor{display:none;}
+  .wrapper{padding:82px 1.5rem 4rem;}
+  .topbar{padding:0 1.5rem;}
+  .project-hero{grid-template-columns:1fr;gap:2rem;}
+  .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
+  h1.project-title{font-size:2.6rem;}
+}
+  </style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="topbar">
+  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+</div>
+<div class="wrapper">
+<div class="project-hero">
+  <div class="hero-left">
+    <div class="project-eyebrow">Projet scolaire &middot; JavaScript</div>
+    <h1 class="project-title">Filtre Kuzco</h1>
+    <p class="project-subtitle">Filtre webcam temps réel avec détection faciale par MediaPipe Face Mesh (468 points). Applique des masques animés sur le visage : inspiré du lama Kuzco du film d'animation Disney.</p>
+    <div class="tags-row">
+      <span class="tag">JavaScript</span><span class="tag">MediaPipe</span><span class="tag">Canvas API</span><span class="tag">Webcam</span><span class="tag">Face Mesh</span><span class="tag">Temps réel</span>
+    </div>
+    <div class="btns-row">
+      <a href="https://zaynabnrbdddd.github.io/filtre_lama/" target="_blank" rel="noopener" class="btn-discover">Tester le filtre <i class="ti ti-external-link"></i></a>
+    </div>
+  </div>
+  <div class="meta-grid">
+    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire : BTS SIO SLAM</div></div>
+    <div class="meta-card"><div class="meta-label">Démo live</div><div class="meta-value">zaynabnrbdddd.github.io/filtre_lama</div></div>
+    <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">JS vanilla &middot; MediaPipe &middot; Canvas 2D &middot; WebRTC</div></div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">02/04/2026 : 06/04/2026</div></div>
+    <div class="meta-card">
+      <div class="meta-label">Compétences E5</div>
+      <div class="meta-value pills">
+        <span class="meta-pill">Travailler en mode projet</span>
+        <span class="meta-pill">Concevoir une solution</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="screenshots-section">
+  <div class="section-title">Aperçu</div>
+  <div class="screenshots-grid">
+    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : filtre lama actif sur visage</span></div><div class="screenshot-label">Filtre Lama : détection faciale en temps réel</div></div>
+    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : filtre Kuzco</span></div><div class="screenshot-label">Filtre Kuzco : couronne animée</div></div>
+    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : écran de chargement</span></div><div class="screenshot-label">Chargement MediaPipe</div></div>
+  </div>
+</div>
+
+<div class="content-section">
+  <div class="section-title">Description</div>
+  <p class="content-text">Filtre Kuzco est une application web qui utilise la caméra de l'utilisateur pour détecter les points caractéristiques du visage en temps réel et y superposer des masques animés, dans l'esprit des filtres Snapchat ou Instagram. Le nom est un clin d'oeil au personnage de Kuzco du film Kuzco, l'Empereur Mégalo : transformé en lama.</p>
+  <p class="content-text">Techniquement, le projet s'appuie sur MediaPipe Face Mesh, une bibliothèque de machine learning de Google qui détecte 468 points de repère sur le visage par image. Ces coordonnées sont utilisées pour positionner et orienter les éléments graphiques dessinés sur un canvas HTML5 superposé au flux vidéo, avec un effet miroir pour un résultat naturel.</p>
+  <p class="content-text">Un algorithme de lissage exponentiel (facteur 0,4) est appliqué aux coordonnées entre chaque frame pour éviter les tremblements et obtenir un rendu fluide. L'utilisateur peut basculer entre le filtre Lama, le filtre Kuzco ou désactiver l'effet via des boutons.</p>
+</div>
+
+<div class="content-section">
+  <div class="section-title">Pipeline technique</div>
+  <div class="features-grid" style="grid-template-columns:repeat(5,1fr);">
+    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-camera"></i></div><div><div class="feature-title">Webcam</div><div class="feature-desc">WebRTC getUserMedia</div></div></div>
+    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-brain"></i></div><div><div class="feature-title">Analyse</div><div class="feature-desc">MediaPipe Face Mesh 468 pts</div></div></div>
+    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-wave-sine"></i></div><div><div class="feature-title">Lissage</div><div class="feature-desc">Smoothing exponentiel 0,4</div></div></div>
+    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-palette"></i></div><div><div class="feature-title">Rendu</div><div class="feature-desc">Canvas 2D, effet miroir</div></div></div>
+    <div class="feature-card" style="flex-direction:column;align-items:flex-start;"><div class="feature-icon"><i class="ti ti-device-tv"></i></div><div><div class="feature-title">Sortie</div><div class="feature-desc">Affichage live temps réel</div></div></div>
+  </div>
+</div>
+
+<div class="content-section">
+  <div class="section-title">Fonctionnalités</div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-chart-dots-3"></i></div><div><div class="feature-title">468 landmarks</div><div class="feature-desc">Chaque point du maillage facial est utilisé pour ancrer et orienter précisément les éléments graphiques.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-adjustments-horizontal"></i></div><div><div class="feature-title">2 filtres et mode off</div><div class="feature-desc">Filtre Lama, filtre Kuzco et mode sans filtre, sélectionnables en temps réel sans rechargement.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-flip-horizontal"></i></div><div><div class="feature-title">Effet miroir</div><div class="feature-desc">Vidéo et masques inversés horizontalement pour un rendu naturel et intuitif.</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-users"></i></div><div><div class="feature-title">Multi-visages</div><div class="feature-desc">Support de jusqu'à 4 visages simultanément dans le champ de la caméra.</div></div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="content-section">
+  <div class="section-title">Ce que j'en retiens</div>
+  <div class="bilan-grid">
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-circuit-resistor"></i></div><div><div class="bilan-label">ML embarqué</div><div class="bilan-text">Première utilisation d'un modèle de machine learning côté client, sans serveur ni API externe.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-brush"></i></div><div><div class="bilan-label">Canvas API</div><div class="bilan-text">Maîtrisé le dessin vectoriel dynamique, les transformations et la gestion frame par frame.</div></div></div>
+    <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-rocket"></i></div><div><div class="bilan-label">Performance</div><div class="bilan-text">Appris à optimiser un rendu temps réel : willReadFrequently, lissage, réduction des redraws.</div></div></div>
+  </div>
+</div>
+</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+<script>
+const cursor=document.getElementById('cursor');
+let mx=0,my=0,ld=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+  const n=Date.now();if(n-ld>20){ld=n;dust(mx,my);}
+});
+function dust(x,y){
+  const d=document.createElement('div');d.className='dust';
+  const s=2+Math.random()*5;
+  const c=['#FF2D9B','#FF80C8','#FFB3DF','#FF5EC4','#FF0080'][Math.floor(Math.random()*5)];
+  d.style.cssText='left:'+(x+(Math.random()-.5)*12)+'px;top:'+(y+(Math.random()-.5)*12)+'px;width:'+s+'px;height:'+s+'px;background:'+c+';box-shadow:0 0 '+(s*2)+'px '+c+';animation-duration:'+(0.4+Math.random()*0.3)+'s;';
+  document.body.appendChild(d);d.addEventListener('animationend',()=>d.remove());
+}
+document.querySelectorAll('a,button,.meta-card,.feature-card,.bilan-card,.screenshot-slot').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+});
+</script>
+</body>
+</html>
