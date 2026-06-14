@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GSB : Zaynab Nour Ebad</title>
+  <title>GSB &mdash; Zaynab Nour Ebad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .nav-logo:hover{text-shadow:0 0 16px var(--pink),0 0 40px var(--pink-glow);}
 
 /* WRAPPER */
-.wrapper{max-width:1140px;margin:0 auto;padding:100px 4rem 6rem;}
+.wrapper{max-width:1140px;margin:0 auto;padding:130px 4rem 7rem;}
 
 /* HERO */
 .project-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-bottom:5rem;}
@@ -129,28 +129,29 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   .screenshots-grid,.features-grid,.bilan-grid{grid-template-columns:1fr;}
   h1.project-title{font-size:2.6rem;}
 }
+
   </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="topbar">
-  <a href="index.html#projets" class="nav-logo">✦ Portfolio</a>
+  <a href="index.html#projets" class="nav-logo">Portfolio</a>
 </div>
 <div class="wrapper">
 <div class="project-hero">
   <div class="hero-left">
     <div class="project-eyebrow">Projet scolaire &middot; SLAM</div>
     <h1 class="project-title">GSB</h1>
-    <p class="project-subtitle">Application Windows Forms en C# pour la gestion médicale : patients, ordonnances et médecins : construite en architecture MVC avec base de données MySQL.</p>
+    <p class="project-subtitle">Application Windows Forms en C# pour la gestion médicale — patients, ordonnances et médecins — construite en architecture MVC avec base de données MySQL.</p>
     <div class="tags-row">
       <span class="tag">C#</span><span class="tag">MySQL</span><span class="tag">Windows Forms</span><span class="tag">Architecture MVC</span><span class="tag">Visual Studio</span><span class="tag">Docker</span>
     </div>
   </div>
   <div class="meta-grid">
-    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire : BTS SIO SLAM</div></div>
-    <div class="meta-card"><div class="meta-label">Contexte</div><div class="meta-value">GSB : Gestion du Secteur Biomédical</div></div>
+    <div class="meta-card"><div class="meta-label">Type</div><div class="meta-value">Projet scolaire — BTS SIO SLAM</div></div>
+    <div class="meta-card"><div class="meta-label">Contexte</div><div class="meta-value">GSB — Gestion du Secteur Biomédical</div></div>
     <div class="meta-card"><div class="meta-label">Technologies</div><div class="meta-value">C# &middot; Windows Forms &middot; MySQL &middot; Docker</div></div>
-    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">15/04/2026 : 05/06/2026</div></div>
+    <div class="meta-card"><div class="meta-label">Période</div><div class="meta-value">15/04/2026 au 05/06/2026</div></div>
     <div class="meta-card">
       <div class="meta-label">Compétences E5</div>
       <div class="meta-value pills">
@@ -168,17 +169,26 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
 <div class="screenshots-section">
   <div class="section-title">Aperçu</div>
   <div class="screenshots-grid">
-    <div class="screenshot-slot full"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : liste des patients</span></div><div class="screenshot-label">Vue principale : Liste des patients</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : fiche patient</span></div><div class="screenshot-label">Détail patient et ordonnances</div></div>
-    <div class="screenshot-slot"><div class="screenshot-placeholder"><i class="ti ti-photo-plus"></i><span>Capture : formulaire d'édition</span></div><div class="screenshot-label">Formulaire de modification</div></div>
+    <div class="screenshot-slot full">
+      <img src="captures/gsb-liste.png" alt="Liste des patients GSB">
+      <div class="screenshot-label">Vue principale — Liste des patients</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/gsb-fiche.png" alt="Fiche patient GSB">
+      <div class="screenshot-label">Fiche patient et ordonnances</div>
+    </div>
+    <div class="screenshot-slot">
+      <img src="captures/gsb-modifier.png" alt="Formulaire modification GSB">
+      <div class="screenshot-label">Formulaire de modification</div>
+    </div>
   </div>
 </div>
 
 <div class="content-section">
   <div class="section-title">Description</div>
   <p class="content-text">GSB est une application de bureau développée en C# avec Windows Forms dans le cadre des TPs BTS SIO. Elle simule un système de gestion médicale inspiré du secteur biomédical, permettant à un personnel hospitalier de gérer les patients, consulter leurs ordonnances et accéder aux informations des médecins référents.</p>
-  <p class="content-text">Le projet m'a permis de mettre en place une architecture MVC complète : les modèles (Patient, Medecin, Ordonnance, Medicament) gèrent les données, les contrôleurs centralisent la logique métier avec des requêtes paramétrées pour éviter les injections SQL, et les formulaires Windows Forms constituent la couche vue.</p>
-  <p class="content-text">La base de données MySQL a été montée via Docker avec un fichier SQL d'initialisation, permettant un déploiement reproductible. Les transactions MySQL garantissent l'intégrité des données lors de la création d'une ordonnance multi-médicaments.</p>
+  <p class="content-text">Le projet met en place une architecture MVC complète : les modèles (Patient, Medecin, Ordonnance, Medicament) gèrent les données, les contrôleurs centralisent la logique métier avec des requêtes paramétrées pour éviter les injections SQL, et les formulaires Windows Forms constituent la couche vue.</p>
+  <p class="content-text">La base de données MySQL a été montée via Docker avec un fichier SQL d'initialisation permettant un déploiement reproductible. Les transactions MySQL garantissent l'intégrité des données lors de la création d'une ordonnance multi-médicaments.</p>
 </div>
 
 <div class="content-section">
@@ -195,7 +205,7 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
   <div class="section-title">Architecture MVC</div>
   <div class="features-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;">
     <div class="feature-card"><div class="feature-icon"><i class="ti ti-layout-2"></i></div><div><div class="feature-title">Vue</div><div class="feature-desc">Windows Forms : PatientListForm, PatientDetailForm, OrdonnanceEditForm</div></div></div>
-    <div class="feature-card"><div class="feature-icon"><i class="ti ti-settings-2"></i></div><div><div class="feature-title">Contrôleur</div><div class="feature-desc">PatientController, AllergieController : logique métier et requêtes SQL</div></div></div>
+    <div class="feature-card"><div class="feature-icon"><i class="ti ti-settings-2"></i></div><div><div class="feature-title">Contrôleur</div><div class="feature-desc">PatientController, AllergieController, logique métier et requêtes SQL</div></div></div>
     <div class="feature-card"><div class="feature-icon"><i class="ti ti-box"></i></div><div><div class="feature-title">Modèle</div><div class="feature-desc">Patient, Medecin, Ordonnance, Medicament, Prescription, Allergie</div></div></div>
     <div class="feature-card"><div class="feature-icon"><i class="ti ti-database"></i></div><div><div class="feature-title">Données</div><div class="feature-desc">MySQL 8.0 via Docker, DbConnexion.cs, MySqlConnector NuGet</div></div></div>
   </div>
@@ -211,7 +221,8 @@ footer{text-align:center;padding:2rem 4rem;border-top:1px solid rgba(255,45,155,
     <div class="bilan-card"><div class="bilan-icon-wrap"><i class="ti ti-brand-docker"></i></div><div><div class="bilan-label">DevOps</div><div class="bilan-text">Premiers pas avec Docker pour monter un environnement MySQL reproductible et isolé.</div></div></div>
   </div>
 </div>
-</div><footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
+</div>
+<footer>Portfolio BTS SIO &middot; Zaynab Nour Ebad &middot; 2025</footer>
 <script>
 const cursor=document.getElementById('cursor');
 let mx=0,my=0,ld=0;
